@@ -4,13 +4,6 @@ sessionStorage.setItem("activeUser", 3);
 const user = sessionStorage.getItem("activeUser");
 const activeUser = parseInt(user);
 
-console.log(activeUser);
-
-
-// Given a user wants to enter in a chat message
-// When the user activates their account
-// And enters a message into the New message text input
-// Then their message should appear in the Chat area, prepended with the user's name
 
 const API = {
     
@@ -31,7 +24,23 @@ const API = {
         }).then(response => response.json())
 
     },
+    updateMessage(message) {
+        return fetch(`${baseUrl}/messages/${message.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(message)
+        });
+    },
+
+    deleteMessage(id) {
+        return fetch(`${baseUrl}/messages/${id}`, {
+          method: "DELETE"
+        })
+      }
 }
+
 
 
 
