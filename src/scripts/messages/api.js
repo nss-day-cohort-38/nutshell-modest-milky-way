@@ -1,20 +1,20 @@
 
 const baseUrl = "http://localhost:5000";
-sessionStorage.setItem("activeUser", 3);
+sessionStorage.setItem("activeUser", 1);
 const user = sessionStorage.getItem("activeUser");
 const activeUser = parseInt(user);
 
 
 const API = {
-    
+
     user: activeUser,
 
-    getAllMessages(){
+    getAllMessages() {
         return fetch(`${baseUrl}/messages?_expand=user`)
-        .then(response => response.json());
+            .then(response => response.json());
     },
 
-    addNewMessage(newMessage){
+    addNewMessage(newMessage) {
         return fetch(`${baseUrl}/messages?_expand=user`, {
             method: "POST",
             headers: {
@@ -36,9 +36,9 @@ const API = {
 
     deleteMessage(id) {
         return fetch(`${baseUrl}/messages/${id}`, {
-          method: "DELETE"
+            method: "DELETE"
         })
-      }
+    }
 }
 
 

@@ -8,10 +8,10 @@ const newMessageInput = document.getElementById("newMessageInput");
 
 
 const clearForm = () => {
-  
+
     hiddenMessageId.value = "";
     newMessageInput.value = "";
-  }
+}
 
 
 const updateMessageFields = messageId => {
@@ -19,9 +19,9 @@ const updateMessageFields = messageId => {
     fetch(`http://localhost:5000/messages/${messageId}`)
         .then(response => response.json())
         .then(message => {
+            // console.log(message)
             hiddenMessageId.value = message.id;
             newMessageInput.value = message.message;
-
         });
 }
 
@@ -35,13 +35,14 @@ const events = {
                 "message": newMessageInput.value
             }
 
+
             if (hiddenMessageId.value !== "" && API.user === newMessage.userId) {
                 newMessage.id = parseInt(hiddenMessageId.value);
-            // console.log(newMessage);
+                // console.log(newMessage);
 
-            API.updateMessage(newMessage)
-                .then(render.renderAllMessages)
-                .then(clearForm)
+                API.updateMessage(newMessage)
+                    .then(render.renderAllMessages)
+                    .then(clearForm)
             }
 
             else if (newMessageInput.value !== "" && API.user === newMessage.userId) {
@@ -59,17 +60,21 @@ const events = {
     addDeleteAndEditButtonListeners() {
         messagesContainer.addEventListener("click", (event) => {
 
-                 
-              if (event.target.id.startsWith("deleteMessage--")) {
+
+            if (event.target.id.startsWith("deleteMessage--")) {
                 const deleteBtnId = event.target.id.split("--")[1];
 
                 messagesContainer.textContent = ""
                 if (confirm("Are you sure you want to delete?") === true) {
-                API.deleteMessage(deleteBtnId)
-                    .then(render.renderAllMessages)
+                    API.deleteMessage(deleteBtnId)
+                        .then(render.renderAllMessages)
+                        .then(clearForm);
+
                 }
                 else {
                     render.renderAllMessages();
+                    clearForm();
+
                 }
             }
             else if (event.target.id.startsWith("editMessage--")) {
@@ -81,10 +86,10 @@ const events = {
 
         })
 
-        }
     }
+}
 
-    
-    
- 
+
+
+
 export default events
