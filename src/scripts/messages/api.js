@@ -1,8 +1,10 @@
 
 const baseUrl = "http://localhost:5000";
-sessionStorage.setItem("activeUser", 2);
+sessionStorage.setItem("activeUser", 3);
 const user = sessionStorage.getItem("activeUser");
-// console.log(user);
+const activeUser = parseInt(user);
+
+console.log(activeUser);
 
 
 // Given a user wants to enter in a chat message
@@ -12,14 +14,23 @@ const user = sessionStorage.getItem("activeUser");
 
 const API = {
     
-    user: user,
+    user: activeUser,
 
     getAllMessages(){
         return fetch(`${baseUrl}/messages?_expand=user`)
         .then(response => response.json());
     },
 
+    addNewMessage(newMessage){
+        return fetch(`${baseUrl}/messages?_expand=user`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newMessage)
+        }).then(response => response.json())
 
+    },
 }
 
 
