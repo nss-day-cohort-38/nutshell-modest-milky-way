@@ -24,7 +24,6 @@ const articlesDomManager = {
         refreshArticles () {
             articlesApiManager.getArticles()
                 .then(this.renderArticleList)
-                .then(articlesEventListeners.addArticlesEventListener) 
         }
     },
     
