@@ -19,9 +19,15 @@ const articlesDomManager = {
     },
     article: {
         renderArticleList (articles) {
+            //FIXME: In the middle of this
+            const sortedArticles = articles.sort((a, b) => {
+                const aDate = new Date(a)
+                const bDate = new Date(b)
+                return bDate - aDate
+              })
             const container = document.querySelector("#articles__div");
             container.innerHTML = "";
-            articles.forEach(article => {
+            sortedArticles.forEach(article => {
                 let html = articlesHtmlFactory.article.makeHtml(article);
                 container.innerHTML += html;
             });

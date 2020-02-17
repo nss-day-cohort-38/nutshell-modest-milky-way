@@ -38,9 +38,23 @@ const articlesEventListeners = {
                 // EDIT ARTICLE
                 else if (btnType === "article-edit") {
                     const btnId = e.target.id.split("__")[2];
-                    articlesApiManager.getArticle(btnId)
-                        .then(articlesApiManager.editArticle)
-                        .then(articlesDomManager.article.refreshArticles());
+                    // If the save article form is already open,
+                    // Prompt the user whether they want to continue
+                    if (document.getElementById("article-id")) {
+                        const response = confirm("Abandon current edits?")
+                        if (response) {
+                            document.getElementById("article-form__div").innerHTML = "";
+                            articlesDomManager.form.renderForm();
+                            articlesApiManager.getArticle(btnId)
+                                .then(articlesApiManager.editArticle)
+                                .then(articlesDomManager.article.refreshArticles());
+                        }
+                    } else {
+                        articlesDomManager.form.renderForm();
+                        articlesApiManager.getArticle(btnId)
+                            .then(articlesApiManager.editArticle)
+                            .then(articlesDomManager.article.refreshArticles());
+                    }
                 }
                 // DELETE ARTICLE
                 else if (btnType === "article-delete") {
