@@ -16,7 +16,7 @@ const clearForm = () => {
 
 const updateMessageFields = messageId => {
 
-    fetch(`http://localhost:5000/messages/${messageId}`)
+    fetch(`http://localhost:8088/messages/${messageId}`)
         .then(response => response.json())
         .then(message => {
             if (API.user === message.userId) {
