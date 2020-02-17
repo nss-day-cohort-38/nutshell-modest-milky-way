@@ -41,6 +41,10 @@ const articlesApiManager = {
             "url": url
         }
         
+    },
+    deleteArticle (id) {
+        return fetch(`${this.baseUrl}/${id}`, {method: "DELETE"})
+        .then(response => response.json())
     }
     // TODO: delete
 }

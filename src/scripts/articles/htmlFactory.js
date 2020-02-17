@@ -42,6 +42,10 @@ const articlesHtmlFactory = {
                     <p><strong>URL:</strong> ${article.url}</p>
                     <p><strong>Synopsis:</strong> ${article.synopsis}</p>
                 </div>
+                <div>
+                    <button class="delete-button" id="article-delete__button__${article.id}">Delete</button>
+                    <button class="edit-button" id="article-edit__button__${article.id}">Edit</button>
+                </div>
             </article>
             `
         }

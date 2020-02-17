@@ -8,9 +8,14 @@ const articlesDomManager = {
             const container = document.querySelector("#article-form__div");
             let html = articlesHtmlFactory.form.makeHtml();
             container.innerHTML = html
+        },
+        clearForm() {
+            document.getElementById("article-id").value = ""
+            // TODO; get user id
+            document.getElementById("articleTitle").value = "";
+            document.getElementById("articleSynopsis").value = "";
+            document.getElementById("articleUrl").value = "";
         }
-
-        //TODO: clearform
     },
     article: {
         renderArticleList (articles) {

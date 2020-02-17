@@ -2,29 +2,35 @@ import articlesApiManager from "./apiManager.js";
 import articlesDomManager from "./domManager.js"
 
 const articlesEventListeners = {
-    // TODO: Add New
-    // TODO: Add Save
     addArticlesEventListener() {
         const wrapper = document.getElementById("wrapper");
 
         wrapper.addEventListener("click", (e) => {
+            // IF A BUTTON
             if (e.target.id.split("__")[1] === "button") {
-                const btn = e.target.id.split("__")[0];
-                if (btn === "article-save") {
+                const btnType = e.target.id.split("__")[0];
+                // SAVE AN ARTICLE
+                if (btnType === "article-save") {
                     const article = articlesApiManager.makeArticleObject();
                     articlesApiManager.saveArticle(article)
                         .then(articlesDomManager.article.refreshArticles())
+                        .then(articlesDomManager.form.clearForm)
                 }
-                if (btn === "article-reset") {
-                    // TODO: FINISH THIS
-                    console.log("resetting article")
+                // RESET FORM
+                if (btnType === "article-reset") {
+                    articlesDomManager.form.clearForm();
+                }
+                // TODO: Add Cancel
+                // TODO: Add Edit
+                if (btnType === "article-delete") {
+                    const btnId = e.target.id.split("__")[2];
+                    articlesApiManager.deleteArticle(btnId)
+                        .then(articlesDomManager.article.refreshArticles());
                 }
             }
         })
     }
-    // TODO: Add Cancel
-    // TODO: Add Edit
-    // TODO: Add Delete
+
 }
 
 export default articlesEventListeners;
