@@ -19,9 +19,15 @@ const updateMessageFields = messageId => {
     fetch(`http://localhost:5000/messages/${messageId}`)
         .then(response => response.json())
         .then(message => {
-            // console.log(message)
+            console.log(message);
+            console.log(API.user)
+            if (API.user === message.userId) {
             hiddenMessageId.value = message.id;
             newMessageInput.value = message.message;
+            }
+            else {
+                window.alert('this is not your message to edit ')
+            }
         });
 }
 
@@ -61,23 +67,23 @@ const events = {
         messagesContainer.addEventListener("click", (event) => {
 
 
-            if (event.target.id.startsWith("deleteMessage--")) {
-                const deleteBtnId = event.target.id.split("--")[1];
+            // if (event.target.id.startsWith("deleteMessage--")) {
+            //     const deleteBtnId = event.target.id.split("--")[1];
 
-                messagesContainer.textContent = ""
-                if (confirm("Are you sure you want to delete?") === true) {
-                    API.deleteMessage(deleteBtnId)
-                        .then(render.renderAllMessages)
-                        .then(clearForm);
+            //     messagesContainer.textContent = ""
+            //     if (confirm("Are you sure you want to delete?") === true) {
+            //         API.deleteMessage(deleteBtnId)
+            //             .then(render.renderAllMessages)
+            //             .then(clearForm);
 
-                }
-                else {
-                    render.renderAllMessages();
-                    clearForm();
+            //     }
+            //     else {
+            //         render.renderAllMessages();
+            //         clearForm();
 
-                }
-            }
-            else if (event.target.id.startsWith("editMessage--")) {
+            //     }
+            // }
+            if (event.target.id.startsWith("editMessage--")) {
 
                 const messageToEdit = event.target.id.split("--")[1];
 
