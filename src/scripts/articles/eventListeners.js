@@ -21,7 +21,14 @@ const articlesEventListeners = {
                     articlesDomManager.form.clearForm();
                 }
                 // TODO: Add Cancel
-                // TODO: Add Edit
+                // EDIT ARTICLE
+                if (btnType === "article-edit") {
+                    const btnId = e.target.id.split("__")[2];
+                    articlesApiManager.getArticle(btnId)
+                        .then(articlesApiManager.editArticle)
+                        .then(articlesDomManager.article.refreshArticles());
+                }
+                // DELETE ARTICLE
                 if (btnType === "article-delete") {
                     const btnId = e.target.id.split("__")[2];
                     articlesApiManager.deleteArticle(btnId)

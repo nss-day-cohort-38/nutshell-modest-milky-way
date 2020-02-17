@@ -5,7 +5,10 @@ const articlesApiManager = {
         return fetch(`${this.baseUrl}?${this.expandUserId}`)
             .then(response => response.json())
     },
-    // TODO: edit
+    getArticle(id){
+        return fetch(`${this.baseUrl}/${id}?${this.expandUserId}`)
+            .then(response => response.json())
+    },
     saveArticle (article) {
         // If there is an id, the user is editing an existing entry
         if (article.id) {
@@ -22,6 +25,18 @@ const articlesApiManager = {
                 body: JSON.stringify(article)
             })
         }
+    },
+    editArticle(article) {
+        document.getElementById("article-id").value = article.id;
+        // TODO; get user id
+        document.getElementById("userId").value = article.userId
+        document.getElementById("articleTitle").value = article.title;
+        document.getElementById("articleSynopsis").value = article.synopsis;
+        document.getElementById("articleUrl").value = article.url;
+
+        // Date/Timestamp is not retrieved or used,
+        // Because clicking save assigns it a new timestamp 
+        // At that point
     },
     makeArticleObject () {
         let id = document.getElementById("article-id").value;
@@ -46,7 +61,6 @@ const articlesApiManager = {
         return fetch(`${this.baseUrl}/${id}`, {method: "DELETE"})
         .then(response => response.json())
     }
-    // TODO: delete
 }
 
 export default articlesApiManager;

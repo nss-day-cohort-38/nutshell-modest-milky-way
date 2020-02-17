@@ -28,7 +28,7 @@ const articlesDomManager = {
         },
         refreshArticles () {
             articlesApiManager.getArticles()
-                .then(this.renderArticleList)
+                .then(this.renderArticleList);
         }
     },
     
