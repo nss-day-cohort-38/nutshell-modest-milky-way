@@ -24,8 +24,8 @@ const articlesHtmlFactory = {
                     </div>
                 </form>
                 <div class="buttons">       
-                    <button id="article-save-button">Save</button>
-                    <button id="article-reset-button">Reset</button>
+                    <button id="article-save__button">Save</button>
+                    <button id="article-reset__button">Reset</button>
                 </div>
             </article>
             `

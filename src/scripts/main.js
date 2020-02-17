@@ -9,18 +9,11 @@ htmlMaster.renderer.navBar();
 htmlMaster.renderer.footer();
 
 //ARTICLES
-// Hacky if statement to keep these scripts 
-// from running on the wrong page, 
-// by getting the current url
-if (window.location.href.split("/")[4] === "index.html") {
-    articlesDomManager.article.refreshArticles();
-    articlesDomManager.form.renderForm();
-    articlesEventListeners.addArticlesEventListener(); 
-}
+articlesDomManager.article.refreshArticles();
+articlesDomManager.form.renderForm();
+articlesEventListeners.addArticlesEventListener(); 
 
 //CHAT
-if (window.location.href.split("/")[4] === "chat.html") {
-    render.renderAllMessages();
-    events.addSaveButtonListener();
-    events.addDeleteAndEditButtonListeners();
-}
+render.renderAllMessages();
+events.addSaveButtonListener();
+events.addDeleteAndEditButtonListeners();
