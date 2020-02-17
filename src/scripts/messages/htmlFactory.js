@@ -9,7 +9,6 @@ const htmlFactory = (message) => {
     `
 }
 
-{/* <button class="deleteBtn" id="deleteMessage--${message.id}">Delete</button> */}
 
 
 

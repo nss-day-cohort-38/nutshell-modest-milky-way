@@ -11,7 +11,6 @@ const render = {
         API.getAllMessages()
             .then(messagesContainer.innerHTML = "")
             .then(messages => messages.forEach(message => {
-                // console.log(message)
                 messagesContainer.innerHTML += htmlFactory(message)
             }))
     }

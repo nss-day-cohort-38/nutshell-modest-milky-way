@@ -19,8 +19,6 @@ const updateMessageFields = messageId => {
     fetch(`http://localhost:5000/messages/${messageId}`)
         .then(response => response.json())
         .then(message => {
-            console.log(message);
-            console.log(API.user)
             if (API.user === message.userId) {
             hiddenMessageId.value = message.id;
             newMessageInput.value = message.message;
@@ -35,7 +33,6 @@ const updateMessageFields = messageId => {
 const events = {
     addSaveButtonListener() {
         saveButton.addEventListener("click", (event) => {
-            // console.log(event);
             const newMessage = {
                 "userId": API.user,
                 "message": newMessageInput.value
@@ -44,7 +41,7 @@ const events = {
 
             if (hiddenMessageId.value !== "" && API.user === newMessage.userId) {
                 newMessage.id = parseInt(hiddenMessageId.value);
-                // console.log(newMessage);
+              
 
                 API.updateMessage(newMessage)
                     .then(render.renderAllMessages)
@@ -66,23 +63,6 @@ const events = {
     addDeleteAndEditButtonListeners() {
         messagesContainer.addEventListener("click", (event) => {
 
-
-            // if (event.target.id.startsWith("deleteMessage--")) {
-            //     const deleteBtnId = event.target.id.split("--")[1];
-
-            //     messagesContainer.textContent = ""
-            //     if (confirm("Are you sure you want to delete?") === true) {
-            //         API.deleteMessage(deleteBtnId)
-            //             .then(render.renderAllMessages)
-            //             .then(clearForm);
-
-            //     }
-            //     else {
-            //         render.renderAllMessages();
-            //         clearForm();
-
-            //     }
-            // }
             if (event.target.id.startsWith("editMessage--")) {
 
                 const messageToEdit = event.target.id.split("--")[1];
