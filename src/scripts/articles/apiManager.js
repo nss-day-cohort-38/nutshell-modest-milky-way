@@ -1,4 +1,4 @@
-const apiManager = {
+const articlesApiManager = {
     baseUrl: 'http://localhost:8088',
     expandUserId: '_expand=user',
     getArticles () {
@@ -13,4 +13,4 @@ const apiManager = {
 
 
 
-export default apiManager
+export default articlesApiManager

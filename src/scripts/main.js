@@ -1,10 +1,17 @@
 import htmlMaster from './htmlMaster.js'
-import domManager from './articles/domManager.js'
-import domMananger from './articles/domManager.js';
-//FIXME: this naming convention will likely cause issues...
+import articlesDomManager from './articles/domManager.js'
+import render from "./messages/render.js"
+import events from "./messages/eventListeners.js"
 
+//HTML Master
 htmlMaster.renderer.navBar();
 htmlMaster.renderer.footer();
 
-domManager.article.refreshArticles();
-domMananger.form.renderForm();
+//ARTICLES
+articlesDomManager.article.refreshArticles();
+articlesDomManager.form.renderForm();
+
+//CHAT
+render.renderAllMessages();
+events.addSaveButtonListener();
+events.addDeleteAndEditButtonListeners();

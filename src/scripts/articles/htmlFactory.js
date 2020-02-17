@@ -1,4 +1,4 @@
-const htmlFactory = {
+const articlesHtmlFactory = {
     form: {
         makeHtml(){
             return `
@@ -49,4 +49,4 @@ const htmlFactory = {
     }
 }
 
-export default htmlFactory;
+export default articlesHtmlFactory;

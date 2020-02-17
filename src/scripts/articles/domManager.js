@@ -1,12 +1,12 @@
-import htmlFactory from './htmlFactory.js'
-import apiManager from './apiManager.js'
+import articlesHtmlFactory from './htmlFactory.js'
+import articlesApiManager from './apiManager.js'
 import articlesEventListeners from './eventListeners.js'
 
-const domMananger = {
+const articlesDomManager = {
     form: {
         renderForm() {
             const container = document.querySelector("#article-form__div");
-            let html = htmlFactory.form.makeHtml();
+            let html = articlesHtmlFactory.form.makeHtml();
             container.innerHTML = html
         }
 
@@ -17,12 +17,12 @@ const domMananger = {
             const container = document.querySelector("#articles__div");
             container.innerHTML = "";
             articles.forEach(article => {
-                let html = htmlFactory.article.makeHtml(article);
+                let html = articlesHtmlFactory.article.makeHtml(article);
                 container.innerHTML += html;
             });
         },
         refreshArticles () {
-            apiManager.getArticles()
+            articlesApiManager.getArticles()
                 .then(this.renderArticleList)
                 .then(articlesEventListeners.addArticlesEventListener) 
         }
@@ -30,4 +30,4 @@ const domMananger = {
     
 }
 
-export default domMananger
+export default articlesDomManager
