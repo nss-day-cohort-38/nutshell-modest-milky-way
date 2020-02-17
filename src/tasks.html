@@ -12,9 +12,14 @@
     <header></header>
     <!-- All page content goes in the Wrapper  -->
     <div id="wrapper">
-        <div>
-            <label for="user">Date of Entry</label>
-                <input type="date" name="journalDate" id="journalDate">
+        <div class="tasksSection">
+            <label for="user">Task:</label>
+                <input type="taskName" name="taskName" id="taskName">
+            <label for="user">Expected Completion Date:</label>
+                <input type="date" name="expectedCompletion" id="expectedCompletion">
+            <label for="user">Check the box if the task has been completed.</label>
+            <input type="checkbox" name="isCompleted" id="isCompleted">
+            <input type="submit" value="submit">
         </div>
     </div>
     <footer></footer>
