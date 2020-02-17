@@ -1,4 +1,7 @@
 const eventBaseUrl = "http://localhost:8088/events"
+sessionStorage.setItem("activeUser", 2);
+const user = sessionStorage.getItem("activeUser");
+console.log(user);
 const eventAPI = {
     getEvents() {
         return fetch(eventBaseUrl).then(resp => resp.json())

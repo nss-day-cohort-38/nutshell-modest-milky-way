@@ -20,8 +20,7 @@ const events = {
                     "date": dateInput.value, 
                     "location": locationInput.value, 
                 }
-                console.log(newEvent)
-                /* eventAPI.saveEvents(newEvent).then(eventAPI.getEvents).then(renderEventCard) */
+                eventAPI.saveEvents(newEvent).then(renderEventCard)
             }
         })
 }
