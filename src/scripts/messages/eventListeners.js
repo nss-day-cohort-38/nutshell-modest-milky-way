@@ -1,10 +1,13 @@
-import API from "./api.js"
-import render from "./render.js";
+import messagesAPI from "./api.js"
+import renderMessages from "./render.js";
 
 const hiddenMessageId = document.getElementById("hiddenMessageId");
 const messagesContainer = document.getElementById("messagesContainer");
 const saveButton = document.getElementById("saveButton");
 const newMessageInput = document.getElementById("newMessageInput");
+
+
+
 
 
 const clearForm = () => {
@@ -19,7 +22,8 @@ const updateMessageFields = messageId => {
     fetch(`http://localhost:8088/messages/${messageId}`)
         .then(response => response.json())
         .then(message => {
-            if (API.user === message.userId) {
+          
+            if (messagesAPI.user === message.userId) {
             hiddenMessageId.value = message.id;
             newMessageInput.value = message.message;
             }
@@ -30,28 +34,33 @@ const updateMessageFields = messageId => {
 }
 
 
-const events = {
+const messagesEvents = {
     addSaveButtonListener() {
         saveButton.addEventListener("click", (event) => {
+            let date = new Date();
+            let newDate = date.toLocaleString();
             const newMessage = {
-                "userId": API.user,
-                "message": newMessageInput.value
+                "userId": messagesAPI.user,
+                "message": newMessageInput.value,
+                "date": newDate
             }
 
 
-            if (hiddenMessageId.value !== "" && API.user === newMessage.userId) {
+            if (hiddenMessageId.value !== "" && messagesAPI.user === newMessage.userId) {
                 newMessage.id = parseInt(hiddenMessageId.value);
               
 
-                API.updateMessage(newMessage)
-                    .then(render.renderAllMessages)
+                messagesAPI.updateMessage(newMessage)
+                    .then(renderMessages.renderAllMessages)
                     .then(clearForm)
+                  
             }
 
-            else if (newMessageInput.value !== "" && API.user === newMessage.userId) {
-                API.addNewMessage(newMessage)
-                    .then(render.renderAllMessages)
+            else if (newMessageInput.value !== "" && messagesAPI.user === newMessage.userId) {
+                messagesAPI.addNewMessage(newMessage)
+                    .then(renderMessages.renderAllMessages)
                     .then(clearForm);
+           
 
 
             }
@@ -78,4 +87,4 @@ const events = {
 
 
 
-export default events
+export default messagesEvents

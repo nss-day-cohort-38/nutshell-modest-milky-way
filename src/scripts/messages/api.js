@@ -5,7 +5,7 @@ const user = sessionStorage.getItem("activeUser");
 const activeUser = parseInt(user);
 
 
-const API = {
+const messagesAPI = {
 
     user: activeUser,
 
@@ -44,4 +44,4 @@ const API = {
 
 
 
-export default API
+export default messagesAPI
