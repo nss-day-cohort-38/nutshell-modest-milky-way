@@ -6,12 +6,12 @@ const htmlMaster = {
                 <h1 class="header-title">Nutshell</h1>
                 <nav class="main-nav">
                     <ul>
-                        <li><a href="index.html">Articles</a></li>
-                        <li><a href="chat.html">Chat</a></li>
-                        <li><a href="friends.html">Friends</a></li>
-                        <li><a href="tasks.html">Tasks</a></li>
-                        <li><a href="user.html">User</a></li>
-                        <li><a href="events.html">Events</a></li>
+                        <li><a href="#user__div">User</a></li>
+                        <li><a href="#friends__div">Friends</a></li>
+                        <li><a href="#tasks__div">Tasks</a></li>
+                        <li><a href="#chat__div">Chat</a></li>
+                        <li><a href="#news__div">Articles</a></li>
+                        <li><a href="#events__div">Events</a></li>
                     </ul>
                 </nav>
                 </header>

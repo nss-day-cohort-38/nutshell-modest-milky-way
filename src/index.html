@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,9 +8,42 @@
   <title>Articles</title>
 </head>
   <body>
+    <!-- Header Built by htmlMaster.js  -->
     <header></header>
-    <!-- All page content goes in the Wrapper  -->
-    <div id="wrapper"></div>
+    <!-- All page content goes in its 
+      respective div within the Wrapper  -->
+    <div id="wrapper">
+      <div id="user__div">
+      </div>
+      <div id="friends__div">
+      </div>
+      <div id="tasks__div">
+      </div>
+      <div id="chat__div">
+        <fieldset>
+          <legend for="newMessageInput">
+            <h1>New Message</h1>
+          </legend>
+          <textarea name="newMessageInput" id="newMessageInput" rows="3" cols="55"></textarea>
+        </fieldset>
+      
+        <button id="saveButton" class="saveBtn">Save</button>
+        <input type="hidden" id="hiddenMessageId" value="" />
+      
+        <fieldset>
+          <legend for="messagesContainer">
+            <h1>Chat</h1>
+          </legend>
+          <section id="messagesContainer">
+          </section>
+        </fieldset>
+      </div>
+      <div id="news__div">
+      </div>
+      <div id="events__div">
+      </div>
+    </div>
+    <!-- Footer Built by htmlMaster.js  -->
     <footer></footer>
     <script type="module" src="scripts/main.js"></script>
   </body>
