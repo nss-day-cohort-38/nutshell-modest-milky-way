@@ -5,7 +5,7 @@ import renderEventCard from "./eventCardRenderDom.js"
 const wrapper = document.querySelector("#wrapper")
 
 
-const events = {
+const eventListeners = {
     addCreateEventListener() {
         wrapper.addEventListener("click", (event) => {
             console.log(event.target.id)
@@ -17,13 +17,22 @@ const events = {
                 const locationInput = document.querySelector("#eventLocation")
                 const newEvent = {
                     "name": nameInput.value, 
+                    "userId": parseInt(eventAPI.user),
                     "date": dateInput.value, 
-                    "location": locationInput.value, 
+                    "location": locationInput.value,
                 }
-                eventAPI.saveEvents(newEvent).then(renderEventCard)
+                eventAPI.saveEvents(newEvent).then(eventAPI.getEvents).then(renderEventCard)
+            }
+            if(event.target.id.startsWith("deleteButton--")) {
+                const deleteButtonId = event.target.id.split("--")[1]
+                eventAPI.deleteEvents(deleteButtonId).then(eventAPI.getEvents).then(renderEventCard)
+            } 
+            if(event.target.id.startsWith("editButton--")) {
+                const editButtonId = event.target.id.split("--")[1]
+                
             }
         })
 }
 }
 
-export default events
+export default eventListeners
