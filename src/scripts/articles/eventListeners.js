@@ -1,5 +1,6 @@
 import articlesApiManager from "./apiManager.js";
 import articlesDomManager from "./domManager.js"
+import articleFormValidation from "./validation.js"
 
 const articlesEventListeners = {
     addArticlesEventListener() {
@@ -9,30 +10,46 @@ const articlesEventListeners = {
             // IF A BUTTON
             if (e.target.id.split("__")[1] === "button") {
                 const btnType = e.target.id.split("__")[0];
+                // NEW ARTICLE BUTTON
+                if (btnType === "article-new") {
+                    articlesDomManager.form.renderForm();
+                }
+                // CANCEL NEW ARTICLE
+                else if (btnType === "article-cancel") {
+                    const container = document.querySelector("#article-form__div");
+                    container.innerHTML = "";
+
+                }
                 // SAVE AN ARTICLE
-                if (btnType === "article-save") {
+                else if (btnType === "article-save") {
                     const article = articlesApiManager.makeArticleObject();
-                    articlesApiManager.saveArticle(article)
-                        .then(articlesDomManager.article.refreshArticles())
-                        .then(articlesDomManager.form.clearForm)
+                    if (articleFormValidation.saveArticle(article)) {
+                        articlesApiManager.saveArticle(article)
+                            .then(articlesDomManager.article.refreshArticles())
+                            .then(articlesDomManager.form.clearForm)
+                    } else {
+                        alert("Please fill out all required fields");
+                    }
                 }
                 // RESET FORM
-                if (btnType === "article-reset") {
+                else if (btnType === "article-reset") {
                     articlesDomManager.form.clearForm();
                 }
-                // TODO: Add Cancel
                 // EDIT ARTICLE
-                if (btnType === "article-edit") {
+                else if (btnType === "article-edit") {
                     const btnId = e.target.id.split("__")[2];
                     articlesApiManager.getArticle(btnId)
                         .then(articlesApiManager.editArticle)
                         .then(articlesDomManager.article.refreshArticles());
                 }
                 // DELETE ARTICLE
-                if (btnType === "article-delete") {
+                else if (btnType === "article-delete") {
                     const btnId = e.target.id.split("__")[2];
-                    articlesApiManager.deleteArticle(btnId)
-                        .then(articlesDomManager.article.refreshArticles());
+                    const response = confirm("Are you sure you want to delete this entry?")
+                    if (response) {
+                        articlesApiManager.deleteArticle(btnId)
+                            .then(articlesDomManager.article.refreshArticles());
+                    }
                 }
             }
         })

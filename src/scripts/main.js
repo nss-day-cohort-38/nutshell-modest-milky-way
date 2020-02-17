@@ -10,7 +10,6 @@ htmlMaster.renderer.footer();
 
 //ARTICLES
 articlesDomManager.article.refreshArticles();
-articlesDomManager.form.renderForm();
 articlesEventListeners.addArticlesEventListener(); 
 
 //CHAT

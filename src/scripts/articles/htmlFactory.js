@@ -26,6 +26,7 @@ const articlesHtmlFactory = {
                 <div class="buttons">       
                     <button id="article-save__button">Save</button>
                     <button id="article-reset__button">Reset</button>
+                    <button id="article-cancel__button">Cancel</button>
                 </div>
             </article>
             `
