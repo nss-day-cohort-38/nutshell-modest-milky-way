@@ -1,9 +1,15 @@
 import htmlFactory from './htmlFactory.js'
 import apiManager from './apiManager.js'
+import articlesEventListeners from './eventListeners.js'
 
 const domMananger = {
     form: {
-        //TODO: renderForm
+        renderForm() {
+            const container = document.querySelector("#article-form__div");
+            let html = htmlFactory.form.makeHtml();
+            container.innerHTML = html
+        }
+
         //TODO: clearform
     },
     article: {
@@ -15,12 +21,11 @@ const domMananger = {
                 container.innerHTML += html;
             });
         },
-        //TODO: refreshArticleList
         refreshArticles () {
             apiManager.getArticles()
-                .then(this.renderArticleList) 
+                .then(this.renderArticleList)
+                .then(articlesEventListeners.addArticlesEventListener) 
         }
-        //TODO: renderArticleList
     },
     
 }

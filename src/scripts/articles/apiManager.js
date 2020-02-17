@@ -5,10 +5,10 @@ const apiManager = {
         return fetch(`${this.baseUrl}/news?${this.expandUserId}`)
             .then(response => response.json())
     }
-    // TODO: get
     // TODO: edit
     // TODO: save
     // TODO: delete
+    //TODO: makeObject
 }
 
 
