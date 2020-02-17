@@ -8,11 +8,31 @@
   <link rel="stylesheet" href="./styles/main.css">
   <title>Chat</title>
 </head>
-  <body>
-    <header></header>
-    <!-- All page content goes in the Wrapper  -->
-    <div id="wrapper"></div>
-    <footer></footer>
-    <script type="module" src="scripts/main.js"></script>
-  </body>
+
+<body>
+  <header></header>
+  <!-- All page content goes in the Wrapper  -->
+  <div id="wrapper">
+      <fieldset>
+        <legend for="newMessageInput">
+          <h1>New Message</h1>
+        </legend>
+        <textarea name="newMessageInput" id="newMessageInput" rows="3" cols="55"></textarea>
+      </fieldset>
+
+      <button id="saveButton" class="saveBtn">Save</button>
+      <input type="hidden" id="hiddenMessageId" value="" />
+
+      <fieldset>
+        <legend for="messagesContainer">
+          <h1>Chat</h1>
+        </legend>
+        <section id="messagesContainer">
+        </section>
+      </fieldset>
+      </div>
+      <footer></footer>
+      <script type="module" src="scripts/main.js"></script>
+</body>
+
 </html>
