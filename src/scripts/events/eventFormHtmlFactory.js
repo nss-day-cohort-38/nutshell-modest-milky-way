@@ -15,7 +15,7 @@ const formHtmlFactory = () => {
             <input type="text" name="eventLocation" id="eventLocation">
         </fieldset>
         <fieldset class="buttonField">
-            <button type="button" id="saveEvent">Save</button>
+            <button type="button" id="saveNewEvent">Save</button>
         </fieldset>
     `
 }
