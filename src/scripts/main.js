@@ -7,4 +7,4 @@ htmlMaster.renderer.footer();
 
 renderMessages.renderAllMessages();
 messagesEvents.addSaveButtonListener();
-messagesEvents.addDeleteAndEditButtonListeners();
+messagesEvents.addEditButtonListeners();

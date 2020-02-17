@@ -69,7 +69,7 @@ const messagesEvents = {
             }
         })
     },
-    addDeleteAndEditButtonListeners() {
+    addEditButtonListeners() {
         messagesContainer.addEventListener("click", (event) => {
 
             if (event.target.id.startsWith("editMessage--")) {
