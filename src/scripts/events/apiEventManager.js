@@ -22,21 +22,21 @@ const eventAPI = {
         });
     }, 
     updateFormFields(editButtonId) {
-        const hiddenInterestId = document.querySelector("#eventHiddenId")
+        const hiddenEventId = document.querySelector("#eventHiddenId")
         const nameInput = document.querySelector("#eventName")
         const dateInput = document.querySelector("#eventDate")
         const locationInput = document.querySelector("#eventLocation")
         fetch(`${eventBaseUrl}/${editButtonId}`)
             .then(response => response.json())
             .then(events => {    
-                hiddenInterestId.value = events.id
+                hiddenEventId.value = events.id
                 nameInput.value = events.name
                 dateInput.value = events.date
                 locationInput.value = events.location
             })
     }, 
     updateFormFieldsFetch(events) {
-        return fetch(`${eventBaseUrl}/${events.hiddenInterestId}/`,{
+        return fetch(`${eventBaseUrl}/${events.hiddenId}/`,{
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
