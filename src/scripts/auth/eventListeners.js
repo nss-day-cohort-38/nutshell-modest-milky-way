@@ -41,14 +41,14 @@ const User = {
     },
     setActiveUser() {
         usersAPI.getAllUsers().then(users => {
-            const newUser = users.slice(-1).pop();
+            const newUser = users.slice(-1)[0];
             const newUserId = newUser.id;
 
             sessionStorage.setItem("activeUser", newUserId);
 
             userDiv.style.display = 'none';
             const showLoggedInUser = document.getElementById("showLoggedInUser");
-            showLoggedInUser.innerHTML += `${newUser.username} is logged in`;   
+            showLoggedInUser.innerHTML += `${newUser.username} is logged in`;
 
         })
     }
