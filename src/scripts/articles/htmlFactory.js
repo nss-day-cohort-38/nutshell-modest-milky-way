@@ -41,7 +41,7 @@ const articlesHtmlFactory = {
                     <div>
                         <p><strong>Date Posted:</strong> ${article.timestamp}</p>
                         <p><strong>Posted by:</strong> ${article.user.username}</p>
-                        <p><strong>URL:</strong> ${article.url}</p>
+                        <p><strong><a href="${article.url}">Link</a></strong></p>
                         <p><strong>Synopsis:</strong> ${article.synopsis}</p>
                     </div>
                     <div>
