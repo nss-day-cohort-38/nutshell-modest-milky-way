@@ -44,9 +44,13 @@ const articlesEventListeners = {
                         const response = confirm("Abandon current edits?")
                         if (response) {
                             articlesDomManager.form.destroyForm();
-                            articlesDomManager.article.refreshArticles()
-                            // FIXME: For some reason, this specific render 
-                            // doesn't seem to work...
+                            articlesDomManager.article.refreshArticles();
+                            /* 
+                            FIXME: For some reason, this next specific render doesn't work properly. 
+                            (likely, it is happening before the articles are refreshed, but I wasn't
+                            able to get a .then statement to work properly.)
+                            Right now, they just have to click the edit button again... 
+                            */
                             articlesDomManager.form.renderEditForm(btnId)
                             articlesApiManager.getArticle(btnId)
                                 .then(articlesApiManager.editArticle)
@@ -63,6 +67,7 @@ const articlesEventListeners = {
                     const response = confirm("Are you sure you want to delete this entry?")
                     if (response) {
                         articlesApiManager.deleteArticle(btnId)
+                            // FIXME: This doesn't consistently refresh either...
                             .then(articlesDomManager.article.refreshArticles());
                     }
                 }
