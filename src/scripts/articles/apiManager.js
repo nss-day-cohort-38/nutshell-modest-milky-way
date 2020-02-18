@@ -40,7 +40,8 @@ const articlesApiManager = {
     },
     makeArticleObject () {
         let id = document.getElementById("article-id").value;
-        let timestamp = new Date();
+        let timestamp = new Date()
+        let stringTimeStamp = timestamp.toLocaleString();
         // TODO; get user id
         let userId = 4;
         let title = document.getElementById("articleTitle").value;
@@ -49,7 +50,7 @@ const articlesApiManager = {
         
         return {
             "id": id,
-            "timestamp": timestamp,
+            "timestamp": stringTimeStamp,
             "userId": userId,
             "title": title,
             "synopsis": synopsis,

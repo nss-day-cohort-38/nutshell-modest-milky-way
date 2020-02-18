@@ -1,6 +1,5 @@
 import articlesHtmlFactory from './htmlFactory.js'
 import articlesApiManager from './apiManager.js'
-import articlesEventListeners from './eventListeners.js'
 
 const articlesDomManager = {
     form: {
@@ -19,11 +18,10 @@ const articlesDomManager = {
     },
     article: {
         renderArticleList (articles) {
-            //FIXME: In the middle of this
+            // Sort to get the articles in descending order
+            // based on timestamp
             const sortedArticles = articles.sort((a, b) => {
-                const aDate = new Date(a)
-                const bDate = new Date(b)
-                return bDate - aDate
+                return new Date(b.timestamp) - new Date(a.timestamp)
               })
             const container = document.querySelector("#articles__div");
             container.innerHTML = "";
