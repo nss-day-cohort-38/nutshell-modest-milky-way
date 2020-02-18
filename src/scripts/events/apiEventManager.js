@@ -1,4 +1,6 @@
 const eventBaseUrl = "http://localhost:8088/events"
+const baseUrl = "http://localhost:8088/"
+
 sessionStorage.setItem("activeUser", 2);
 const activeUser = sessionStorage.getItem("activeUser");
 

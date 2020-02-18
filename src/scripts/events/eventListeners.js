@@ -2,14 +2,11 @@ import renderEventForm from "./eventFormDom.js"
 import eventAPI from "./apiEventManager.js"
 import renderEventCard from "./eventCardRenderDom.js"
 
-const wrapper = document.querySelector("#wrapper")
-
-
+const wrapper = document.querySelector("#events__div")
 
 const eventListeners = {
     addCreateEventListener() {
         wrapper.addEventListener("click", (event) => {
-            console.log(event.target.id)
             if(event.target.id === "createEvent") {
             renderEventForm()
             } 
@@ -26,7 +23,10 @@ const eventListeners = {
                     "location": locationInput.value,
                 }   
                 if(event.target.id === "saveNewEvent" && hiddenInput.value === "") {
-                    eventAPI.saveEvents(newEvent).then(eventAPI.getEvents).then(renderEventCard) 
+                 eventAPI.saveEvents(newEvent)
+                .then(eventAPI.getEvents)
+                .then(renderEventCard)
+                
                 } else if(event.target.id === "saveNewEvent" && hiddenInput.value) {
                     eventAPI.updateFormFieldsFetch(newEvent).then(eventAPI.getEvents).then(renderEventCard)
                 }  

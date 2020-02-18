@@ -97,3 +97,13 @@ footer {
     width: 100%;
     margin: 0;
 }
+
+.eventInfo:first-child {
+    font-weight: bold;
+    font-size: 22px;
+    background: lavender;
+    border: 2.5px solid #f5bfca;
+    border-radius: 25px;
+    padding: 7.5px;
+    margin-top: 3px;
+}
