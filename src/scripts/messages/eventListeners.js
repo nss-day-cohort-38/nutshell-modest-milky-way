@@ -37,16 +37,18 @@ const updateMessageFields = messageId => {
 const messagesEvents = {
     addSaveButtonListener() {
         saveButton.addEventListener("click", (event) => {
+            const user = sessionStorage.getItem("activeUser");
+            const activeUser = parseInt(user);
             let date = new Date();
             let newDate = date.toLocaleString();
             const newMessage = {
-                "userId": messagesAPI.user,
+                "userId": activeUser,
                 "message": newMessageInput.value,
                 "date": newDate
             }
 
 
-            if (hiddenMessageId.value !== "" && messagesAPI.user === newMessage.userId) {
+            if (hiddenMessageId.value !== "" && activeUser === newMessage.userId) {
                 newMessage.id = parseInt(hiddenMessageId.value);
               
 
@@ -56,7 +58,7 @@ const messagesEvents = {
                   
             }
 
-            else if (newMessageInput.value !== "" && messagesAPI.user === newMessage.userId) {
+            else if (newMessageInput.value !== "" && activeUser === newMessage.userId) {
                 messagesAPI.addNewMessage(newMessage)
                     .then(renderMessages.renderAllMessages)
                     .then(clearForm);
