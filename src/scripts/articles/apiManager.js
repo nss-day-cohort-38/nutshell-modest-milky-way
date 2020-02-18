@@ -27,9 +27,8 @@ const articlesApiManager = {
         }
     },
     editArticle(article) {
-        document.getElementById("article-id").value = article.id;
-        // TODO; get user id
         document.getElementById("userId").value = article.userId
+        document.getElementById("article-id").value = article.id;
         document.getElementById("articleTitle").value = article.title;
         document.getElementById("articleSynopsis").value = article.synopsis;
         document.getElementById("articleUrl").value = article.url;
@@ -42,8 +41,7 @@ const articlesApiManager = {
         let id = document.getElementById("article-id").value;
         let timestamp = new Date()
         let stringTimeStamp = timestamp.toLocaleString();
-        // TODO; get user id
-        let userId = 4;
+        let userId = parseInt(sessionStorage.getItem("activeUser"));
         let title = document.getElementById("articleTitle").value;
         let synopsis = document.getElementById("articleSynopsis").value;
         let url = document.getElementById("articleUrl").value;
@@ -60,7 +58,7 @@ const articlesApiManager = {
     },
     deleteArticle (id) {
         return fetch(`${this.baseUrl}/${id}`, {method: "DELETE"})
-        .then(response => response.json())
+            .then(response => response.json())
     }
 }
 

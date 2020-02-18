@@ -14,8 +14,8 @@ const articlesDomManager = {
             container.innerHTML = html
         },
         clearForm() {
-            document.getElementById("article-id").value = ""
-            // TODO; get user id
+            document.getElementById("article-id").value = "";
+            document.getElementById("userId").value = "";
             document.getElementById("articleTitle").value = "";
             document.getElementById("articleSynopsis").value = "";
             document.getElementById("articleUrl").value = "";
@@ -40,6 +40,8 @@ const articlesDomManager = {
             })
         },
         refreshArticles () {
+            //FIXME: This doesn't seem to consistently refresh...
+            //After multiple deletions / saves
             articlesApiManager.getArticles()
                 .then(this.renderArticleList);
         }
