@@ -30,7 +30,14 @@ const User = {
                 let filteredUsers = users.filter(user => username.value === user.username);
 
                 if (filteredUsers.length === 0) {
+
                     usersAPI.addNewUser(newUser)
+                    .then(newUser => { 
+                         sessionStorage.setItem("activeUser", newUser.id);
+                         userDiv.style.display = 'none';
+                        const showLoggedInUser = document.getElementById("showLoggedInUser");
+                        showLoggedInUser.innerHTML += `${newUser.username} is logged in`;              
+                });
                 }
                 else {
                     window.alert("username or email is already taken")
@@ -40,17 +47,13 @@ const User = {
         })
     },
     setActiveUser() {
-        usersAPI.getAllUsers().then(users => {
-            const newUser = users.slice(-1)[0];
-            const newUserId = newUser.id;
 
-            sessionStorage.setItem("activeUser", newUserId);
 
-            userDiv.style.display = 'none';
-            const showLoggedInUser = document.getElementById("showLoggedInUser");
-            showLoggedInUser.innerHTML += `${newUser.username} is logged in`;
+            // userDiv.style.display = 'none';
+            // const showLoggedInUser = document.getElementById("showLoggedInUser");
+            // showLoggedInUser.innerHTML += `${newUser.username} is logged in`;
 
-        })
+        
     }
 }
 
