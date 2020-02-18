@@ -1,13 +1,13 @@
 import htmlMaster from './htmlMaster.js'
 import articlesDomManager from './articles/domManager.js'
 import articlesEventListeners from './articles/eventListeners.js'
-import render from "./messages/render.js"
-import events from "./messages/eventListeners.js"
+import renderMessages from "./messages/render.js"
+import messagesEvents from "./messages/eventListeners.js"
+import User from "./auth/eventListeners.js"
 
-//FIXME:
-// have session storage populate from 
-// user login application in-development
-sessionStorage.setItem("activeUser", 1);
+//EVENTS
+
+//TASKS
 
 //HTML Master
 htmlMaster.renderer.navBar();
@@ -18,6 +18,14 @@ articlesDomManager.article.refreshArticles();
 articlesEventListeners.addArticlesEventListener(); 
 
 //CHAT
-render.renderAllMessages();
-events.addSaveButtonListener();
-events.addDeleteAndEditButtonListeners();
+renderMessages.renderAllMessages();
+messagesEvents.addSaveButtonListener();
+messagesEvents.addEditButtonListeners();
+
+//USERS
+User.createRegistrationForm();
+
+//FIXME:
+// have session storage populate from 
+// user login application in-development
+sessionStorage.setItem("activeUser", 1);
