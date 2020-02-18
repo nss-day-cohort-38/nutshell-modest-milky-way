@@ -22,8 +22,10 @@ const updateMessageFields = messageId => {
     fetch(`http://localhost:8088/messages/${messageId}`)
         .then(response => response.json())
         .then(message => {
+            const user = sessionStorage.getItem("activeUser");
+            const activeUser = parseInt(user);
           
-            if (messagesAPI.user === message.userId) {
+            if (activeUser === message.userId) {
             hiddenMessageId.value = message.id;
             newMessageInput.value = message.message;
             }

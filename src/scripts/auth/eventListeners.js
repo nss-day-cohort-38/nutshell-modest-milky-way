@@ -46,9 +46,9 @@ const User = {
 
             sessionStorage.setItem("activeUser", newUserId);
 
-            userDiv.style.display = 'none'
+            userDiv.style.display = 'none';
             const showLoggedInUser = document.getElementById("showLoggedInUser");
-            showLoggedInUser.innerHTML += `${newUser.username} is logged in`
+            showLoggedInUser.innerHTML += `${newUser.username} is logged in`;   
 
         })
     }
