@@ -22,7 +22,10 @@ const articlesDomManager = {
         },
         destroyForm() {
             const container = document.querySelector("#article__form");
-            container.remove();
+            //A workaround for times when the form is already gone...
+            if (container) {
+                container.remove();
+            }
         }
     },
     article: {
@@ -40,10 +43,8 @@ const articlesDomManager = {
             })
         },
         refreshArticles () {
-            //FIXME: This doesn't seem to consistently refresh...
-            //After multiple deletions / saves
-            articlesApiManager.getArticles()
-                .then(this.renderArticleList);
+            return articlesApiManager.getArticles()
+                .then(articlesDomManager.article.renderArticleList)
         }
     },
     
