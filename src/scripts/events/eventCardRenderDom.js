@@ -12,9 +12,10 @@ const renderEventCard = (events) => {
         let eventDate = new Date(event.date)
         if(eventDate - today > 0) {
             eventCardContainer.innerHTML += makeComponents.makeEventCardComponent(event)
+        } else {
+            window.alert("Past date refused, try again!")
         }
     })
-    window.alert("Past date refused, try again!")
 }
 
 export default renderEventCard

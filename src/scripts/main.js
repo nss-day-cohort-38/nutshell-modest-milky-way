@@ -1,13 +1,16 @@
 //htmlMaster main
 import htmlMaster from './htmlMaster.js'
+import renderMessages from "./messages/render.js"
+import messagesEvents from "./messages/eventListeners.js"
+import User from "./auth/eventListeners.js"
+
 htmlMaster.renderer.navBar();
 htmlMaster.renderer.footer();
+
+renderMessages.renderAllMessages();
+messagesEvents.addSaveButtonListener();
+messagesEvents.addEditButtonListeners();
+User.createRegistrationForm();
 //events main 
 import eventListeners from "./events/eventListeners.js"
 eventListeners.addCreateEventListener()
-//messages main 
-import render from "./messages/render.js"
-import events from "./messages/eventListeners.js"
-render.renderAllMessages();
-events.addSaveButtonListener();
-events.addDeleteAndEditButtonListeners();
