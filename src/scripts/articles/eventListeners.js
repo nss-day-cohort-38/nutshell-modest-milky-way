@@ -16,9 +16,7 @@ const articlesEventListeners = {
                 }
                 // CANCEL NEW ARTICLE
                 else if (btnType === "article-cancel") {
-                    const container = document.querySelector("#article-form__div");
-                    container.innerHTML = "";
-
+                    articlesDomManager.form.destroyForm();
                 }
                 // SAVE AN ARTICLE
                 else if (btnType === "article-save") {
@@ -26,7 +24,7 @@ const articlesEventListeners = {
                     if (articleFormValidation.saveArticle(article)) {
                         articlesApiManager.saveArticle(article)
                             .then(articlesDomManager.article.refreshArticles())
-                            .then(articlesDomManager.form.clearForm)
+                            .then(articlesDomManager.form.destroyForm())
                     } else {
                         alert("Please fill out all required fields");
                     }

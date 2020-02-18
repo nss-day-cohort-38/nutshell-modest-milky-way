@@ -14,6 +14,10 @@ const articlesDomManager = {
             document.getElementById("articleTitle").value = "";
             document.getElementById("articleSynopsis").value = "";
             document.getElementById("articleUrl").value = "";
+        },
+        destroyForm() {
+            const container = document.querySelector("#article-form__div");
+            container.innerHTML = ""
         }
     },
     article: {
