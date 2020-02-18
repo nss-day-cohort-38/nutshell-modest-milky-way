@@ -1,19 +1,19 @@
-import API from "./api.js"
-import htmlFactory from "./htmlFactory.js"
+import messagesAPI from "./api.js"
+import messagesHtmlFactory from "./htmlFactory.js"
 
 const messagesContainer = document.getElementById("messagesContainer");
 
 
-const render = {
+const renderMessages = {
 
     renderAllMessages() {
 
-        API.getAllMessages()
+        messagesAPI.getAllMessages()
             .then(messagesContainer.innerHTML = "")
             .then(messages => messages.forEach(message => {
-                messagesContainer.innerHTML += htmlFactory(message)
+                messagesContainer.innerHTML += messagesHtmlFactory(message)
             }))
     }
 }
 
-export default render
+export default renderMessages

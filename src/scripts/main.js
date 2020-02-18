@@ -1,10 +1,12 @@
 import htmlMaster from './htmlMaster.js'
-import render from "./messages/render.js"
-import events from "./messages/eventListeners.js"
+import renderMessages from "./messages/render.js"
+import messagesEvents from "./messages/eventListeners.js"
+import User from "./auth/eventListeners.js"
 
 htmlMaster.renderer.navBar();
 htmlMaster.renderer.footer();
 
-render.renderAllMessages();
-events.addSaveButtonListener();
-events.addDeleteAndEditButtonListeners();
+renderMessages.renderAllMessages();
+messagesEvents.addSaveButtonListener();
+messagesEvents.addEditButtonListeners();
+User.createRegistrationForm();

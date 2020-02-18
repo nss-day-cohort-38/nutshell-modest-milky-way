@@ -1,13 +1,9 @@
 
 const baseUrl = "http://localhost:8088";
-sessionStorage.setItem("activeUser", 3);
-const user = sessionStorage.getItem("activeUser");
-const activeUser = parseInt(user);
 
 
-const API = {
 
-    user: activeUser,
+const messagesAPI = {
 
     getAllMessages() {
         return fetch(`${baseUrl}/messages?_expand=user`)
@@ -44,4 +40,4 @@ const API = {
 
 
 
-export default API
+export default messagesAPI
