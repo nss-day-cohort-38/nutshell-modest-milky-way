@@ -28,4 +28,3 @@ User.createRegistrationForm();
 //FIXME:
 // have session storage populate from 
 // user login application in-development
-sessionStorage.setItem("activeUser", 1);
