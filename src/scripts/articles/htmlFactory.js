@@ -35,19 +35,21 @@ const articlesHtmlFactory = {
     article: {
         makeHtml(article){
             return `
-            <article>
-                <h2>${article.title}</h2>
-                <div>
-                    <p><strong>Date Posted:</strong> ${article.timestamp}</p>
-                    <p><strong>Posted by:</strong> ${article.user.username}</p>
-                    <p><strong>URL:</strong> ${article.url}</p>
-                    <p><strong>Synopsis:</strong> ${article.synopsis}</p>
-                </div>
-                <div>
-                    <button class="delete-button" id="article-delete__button__${article.id}">Delete</button>
-                    <button class="edit-button" id="article-edit__button__${article.id}">Edit</button>
-                </div>
-            </article>
+            <div id="article-container__${article.id}">
+                <article>
+                    <h2>${article.title}</h2>
+                    <div>
+                        <p><strong>Date Posted:</strong> ${article.timestamp}</p>
+                        <p><strong>Posted by:</strong> ${article.user.username}</p>
+                        <p><strong>URL:</strong> ${article.url}</p>
+                        <p><strong>Synopsis:</strong> ${article.synopsis}</p>
+                    </div>
+                    <div>
+                        <button class="delete-button" id="article-delete__button__${article.id}">Delete</button>
+                        <button class="edit-button" id="article-edit__button__${article.id}">Edit</button>
+                    </div>
+                </article>
+            </div>
             `
         }
 

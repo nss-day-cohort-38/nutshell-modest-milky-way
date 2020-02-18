@@ -3,8 +3,13 @@ import articlesApiManager from './apiManager.js'
 
 const articlesDomManager = {
     form: {
-        renderForm() {
+        renderNewForm() {
             const container = document.querySelector("#article-form__div");
+            let html = articlesHtmlFactory.form.makeHtml();
+            container.innerHTML = html
+        },
+        renderEditForm(articleId) {
+            const container = document.querySelector(`#article-container__${articleId}`);
             let html = articlesHtmlFactory.form.makeHtml();
             container.innerHTML = html
         },
@@ -16,8 +21,8 @@ const articlesDomManager = {
             document.getElementById("articleUrl").value = "";
         },
         destroyForm() {
-            const container = document.querySelector("#article-form__div");
-            container.innerHTML = ""
+            const container = document.querySelector("#article__form");
+            container.remove();
         }
     },
     article: {
@@ -32,7 +37,7 @@ const articlesDomManager = {
             sortedArticles.forEach(article => {
                 let html = articlesHtmlFactory.article.makeHtml(article);
                 container.innerHTML += html;
-            });
+            })
         },
         refreshArticles () {
             articlesApiManager.getArticles()

@@ -12,11 +12,13 @@ const articlesEventListeners = {
                 const btnType = e.target.id.split("__")[0];
                 // NEW ARTICLE BUTTON
                 if (btnType === "article-new") {
-                    articlesDomManager.form.renderForm();
+                    articlesDomManager.form.renderNewForm();
                 }
                 // CANCEL NEW ARTICLE
                 else if (btnType === "article-cancel") {
                     articlesDomManager.form.destroyForm();
+                    articlesDomManager.article.refreshArticles();
+
                 }
                 // SAVE AN ARTICLE
                 else if (btnType === "article-save") {
@@ -41,17 +43,16 @@ const articlesEventListeners = {
                     if (document.getElementById("article-id")) {
                         const response = confirm("Abandon current edits?")
                         if (response) {
-                            document.getElementById("article-form__div").innerHTML = "";
-                            articlesDomManager.form.renderForm();
+                            articlesDomManager.form.destroyForm();
+                            articlesDomManager.article.refreshArticles()
+                            articlesDomManager.form.renderEditForm(btnId)
                             articlesApiManager.getArticle(btnId)
                                 .then(articlesApiManager.editArticle)
-                                .then(articlesDomManager.article.refreshArticles());
                         }
                     } else {
-                        articlesDomManager.form.renderForm();
+                        articlesDomManager.form.renderEditForm(btnId);
                         articlesApiManager.getArticle(btnId)
                             .then(articlesApiManager.editArticle)
-                            .then(articlesDomManager.article.refreshArticles());
                     }
                 }
                 // DELETE ARTICLE
