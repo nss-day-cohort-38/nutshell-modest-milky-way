@@ -41,7 +41,7 @@ const User = {
     },
     setActiveUser() {
         usersAPI.getAllUsers().then(users => {
-            const newUser = users.slice(-1)[0];
+            const newUser = users.slice(-1).pop();
             const newUserId = newUser.id;
 
             sessionStorage.setItem("activeUser", newUserId);
