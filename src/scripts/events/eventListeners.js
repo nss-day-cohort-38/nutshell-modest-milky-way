@@ -17,11 +17,9 @@ const eventListeners = {
                 const locationInput = document.querySelector("#eventLocation")
                 let today = new Date();
                 let eventDate = new Date(dateInput.value);
+                //had some issues with getting todays date, had to reset it
                 eventDate.setDate(eventDate.getDate() + 1)
-                console.log(eventDate)
-                console.log(today)
-                console.log(eventDate-today)
-            
+                //if the value is positive, it will add to API
                 if(eventDate - today >= 0) {
                 const newEvent = {
                     "name": nameInput.value, 
@@ -39,7 +37,7 @@ const eventListeners = {
                     eventAPI.updateFormFieldsFetch(newEvent).then(eventAPI.getEvents).then(renderEventCard)
                 }  
             } else {
-                window.alert("Please enter future date ! ")
+                window.alert("Please enter future date ! ") //if not positive, it will window alert with no adding to API
             }
             }
             if(event.target.id.startsWith("deleteButton--")) {
