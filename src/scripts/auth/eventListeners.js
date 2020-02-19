@@ -79,6 +79,10 @@ const User = {
     logoutUser() {
         logoutUser.addEventListener("click", (event) => {
 
+
+            const showLoggedInUser = document.getElementById("showLoggedInUser");
+            showLoggedInUser.innerHTML = "";
+
             sessionStorage.clear();
             userDiv.style.display = 'block';
             this.clearForm();
