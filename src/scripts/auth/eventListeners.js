@@ -32,7 +32,7 @@ const User = {
         createAccount.addEventListener("click", (event) => {
             userDiv.innerHTML += `<fieldset id="field1">username: <input type="text" id="username"></fieldset>
     <fieldset id="field2">email: <input type="text" id="email"></fieldset>
-    <button id="createUserButton">Create User</button> <button id="loginUserButton">Login</button>`
+     <button id="loginUserButton">Login</button> <button id="createUserButton">Create account</button>`
 
             this.createUserButtonListener();
             this.loginUser();
