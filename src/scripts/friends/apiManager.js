@@ -3,24 +3,25 @@ const friendsApiManager = {
     expand: '_expand=user',
     getFriendList () {
         return fetch(`${this.baseUrl}?${this.expand}`)
-        .then(response => response.json())
+            .then(response => response.json())
     },
-    getFriendship () {
+    getFriendship (id) {
         return fetch(`${this.baseUrl}/${id}?${this.expand}`)
             .then(response => response.json())
     },
     saveFriendship (friendship) {
         // Note: There is no edit functionality for friendships
-        return fetch(`${this.baseUrl}/${friendship.id}`, {
-            method: "PUT",
+        return fetch(`${this.baseUrl}`, {
+            method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(friendship)
         })
     },
-    makeFriendshipObject (friend) {
+    makeFriendshipObject (userId) {
+        //FIXME
         return {
-            "userId": 1,
-            "currentUserId": ""
+            "userId": userId,
+            "currentUserId": parseInt(sessionStorage.getItem("activeUser"))
         }
     },
     deleteFriendship (id) {
