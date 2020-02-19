@@ -16,11 +16,14 @@ const friendsEventListeners = {
                 }
                 // SAVE FRIEND
                 else if (btnType === "friend-save") {
-                    const friend = friendApiManager.makeFriendObject();
-                    if (friendFormValidation.saveFriend(friend)) {
-                        friendApiManager.saveFriend(friend)
-                            .then(friendsDomManager.friendships.refreshFriendsList)
-                            .then(friendsDomManager.form.destroyForm)
+                    const formValue = document.getElementById("new-friend-name__field").value
+                    console.log("passes?", friendsFormValidation.saveFriend(formValue))
+                    if (friendsFormValidation.saveFriend(formValue)) {
+                        const friend = friendsApiManager.makeFriendshipObject();
+                        console.log(friend)
+                        // friendApiManager.saveFriend(friend)
+                        //     .then(friendsDomManager.friendships.refreshFriendsList)
+                        //     .then(friendsDomManager.form.destroyForm)
                     } else {
                         alert("Please fill out all required fields");
                     }

@@ -17,8 +17,11 @@ const friendsApiManager = {
             body: JSON.stringify(friendship)
         })
     },
-    makeFriendshipObject () {
-        // TODO: make this
+    makeFriendshipObject (friend) {
+        return {
+            "userId": 1,
+            "currentUserId": ""
+        }
     },
     deleteFriendship (id) {
         return fetch(`${this.baseUrl}/${id}`, {method: "DELETE"})
