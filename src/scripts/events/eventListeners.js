@@ -15,6 +15,14 @@ const eventListeners = {
                 const nameInput = document.querySelector("#eventName")
                 const dateInput = document.querySelector("#eventDate")
                 const locationInput = document.querySelector("#eventLocation")
+                let today = new Date();
+                let eventDate = new Date(dateInput.value);
+                eventDate.setDate(eventDate.getDate() + 1)
+                console.log(eventDate)
+                console.log(today)
+                console.log(eventDate-today)
+            
+                if(eventDate - today >= 0) {
                 const newEvent = {
                     "name": nameInput.value, 
                     "hiddenId": hiddenInput.value,
@@ -30,6 +38,9 @@ const eventListeners = {
                 } else if(event.target.id === "saveNewEvent" && hiddenInput.value) {
                     eventAPI.updateFormFieldsFetch(newEvent).then(eventAPI.getEvents).then(renderEventCard)
                 }  
+            } else {
+                window.alert("Please enter future date ! ")
+            }
             }
             if(event.target.id.startsWith("deleteButton--")) {
                 const deleteButtonId = event.target.id.split("--")[1]
