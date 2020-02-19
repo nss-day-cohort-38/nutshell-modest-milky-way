@@ -1,7 +1,8 @@
-//htmlMaster main
 import htmlMaster from './htmlMaster.js'
 import articlesDomManager from './articles/domManager.js'
 import articlesEventListeners from './articles/eventListeners.js'
+import friendsDomManager from './friends/domManager.js'
+import friendsEventListener from './friends/eventListeners.js'
 import renderMessages from "./messages/render.js"
 import messagesEvents from "./messages/eventListeners.js"
 import User from "./auth/eventListeners.js"
@@ -31,3 +32,7 @@ User.createRegistrationForm();
 //FIXME:
 // have session storage populate from 
 // user login application in-development
+
+//FRIENDS
+friendsDomManager.friendships.refreshFriendsList();
+friendsEventListener.addFriendsEventListener();

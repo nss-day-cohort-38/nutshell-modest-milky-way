@@ -1,6 +1,6 @@
 const friendsHtmlFactory = {
     form: {
-        makeFormHtml(){
+        makeHtml(){
             return `
             <article id="friend__form">
                 <h2>Add New Friend</h2>
@@ -21,9 +21,9 @@ const friendsHtmlFactory = {
     friend: {
         makeHtml(friend){
             return `
-                <article>
+                <article id="friend-list">
                     <div>
-                        <p><strong>Friend:</strong> ${friend.user.username}</p>
+                        <p>${friend.user.username}</p>
                     </div>
                     <div>
                         <button class="delete-button" id="friend-delete__button__${friend.id}">Delete</button>

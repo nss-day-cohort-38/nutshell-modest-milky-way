@@ -26,4 +26,4 @@ const friendsApiManager = {
     }
 }
 
-export default articlesApiManager;
+export default friendsApiManager;

@@ -19,15 +19,18 @@ const friendsDomManager = {
     friendships: {
         renderFriendsList (friends) {
             const container = document.querySelector("#friends__div");
-            container.innerHTML = "";
+            container.innerHTML = "<h2>Friend List</h2>";
+            container.innerHTML += `<button class="friend-new__button" id="friend-new__button">Add New Friend</button>`
             friends.forEach(friend => {
-                let html = friendsHtmlFactory.friendships.makeHtml(friend);
+                let html = friendsHtmlFactory.friend.makeHtml(friend);
                 container.innerHTML += html;
             })
         },
         refreshFriendsList () {
-            return friendsApiManager.getArticles()
+            return friendsApiManager.getFriendList()
                 .then(friendsDomManager.friendships.renderFriendsList)
         }
     }
 }
+
+export default friendsDomManager;

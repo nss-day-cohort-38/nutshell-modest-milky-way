@@ -12,15 +12,15 @@ const friendsEventListeners = {
                 const btnType = e.target.id.split("__")[0];
                 // NEW FRIEND BUTTON
                 if (btnType === "friend-new") {
-                    friendDomManager.form.renderNewForm();
+                    friendsDomManager.form.renderNewFriendshipForm();
                 }
                 // SAVE FRIEND
                 else if (btnType === "friend-save") {
                     const friend = friendApiManager.makeFriendObject();
                     if (friendFormValidation.saveFriend(friend)) {
                         friendApiManager.saveFriend(friend)
-                            .then(friendDomManager.friendships.refreshFriendsList)
-                            .then(friendDomManager.form.destroyForm)
+                            .then(friendsDomManager.friendships.refreshFriendsList)
+                            .then(friendsDomManager.form.destroyForm)
                     } else {
                         alert("Please fill out all required fields");
                     }
@@ -29,3 +29,5 @@ const friendsEventListeners = {
         })
     }
 }
+
+export default friendsEventListeners
