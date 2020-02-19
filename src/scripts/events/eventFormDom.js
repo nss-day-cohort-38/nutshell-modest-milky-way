@@ -4,7 +4,7 @@ const formContainer = document.querySelector("#eventFormContainer")
 
 const renderEventForm = () => {
         formContainer.innerHTML = ""
-        formContainer.innerHTML += formHtmlFactory()
+        formContainer.innerHTML += formHtmlFactory()    
 }
 
 export default renderEventForm 

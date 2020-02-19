@@ -47,12 +47,6 @@ const User = {
         })
     },
     setActiveUser() {
-
-
-            // userDiv.style.display = 'none';
-            // const showLoggedInUser = document.getElementById("showLoggedInUser");
-            // showLoggedInUser.innerHTML += `${newUser.username} is logged in`;
-
         
     }
 }

@@ -2,6 +2,7 @@ import makeComponents from "./eventCardHtmlFactory.js"
 
 const eventCardContainer = document.getElementById("eventCardContainer")
 
+
 const renderEventCard = (events) => {  
     eventCardContainer.innerHTML = ""
     const sortedEvents = events.sort((a,b) => {
@@ -28,5 +29,3 @@ export default renderEventCard
          if(eventDate - today > 0) {
              return event
          } */
-
-         /* (event) =>  Date.parse(event.date) >= Date.now() */

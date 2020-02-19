@@ -17,6 +17,7 @@ const formHtmlFactory = () => {
         <fieldset class="buttonField">
             <button type="button" id="saveNewEvent">Save</button>
         </fieldset>
+    </form>
     `
 }
 

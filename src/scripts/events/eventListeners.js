@@ -4,6 +4,8 @@ import renderEventCard from "./eventCardRenderDom.js"
 
 const wrapper = document.querySelector("#events__div")
 
+
+
 const eventListeners = {
     addCreateEventListener() {
         wrapper.addEventListener("click", (event) => {
@@ -15,6 +17,13 @@ const eventListeners = {
                 const nameInput = document.querySelector("#eventName")
                 const dateInput = document.querySelector("#eventDate")
                 const locationInput = document.querySelector("#eventLocation")
+                const clearAll = {
+                    clear() {
+                        nameInput.value = ""
+                        dateInput.value = ""
+                        locationInput.value = ""
+                    }
+                }
                 let today = new Date();
                 let eventDate = new Date(dateInput.value);
                 //had some issues with getting todays date, had to reset it
@@ -32,6 +41,7 @@ const eventListeners = {
                  eventAPI.saveEvents(newEvent)
                 .then(eventAPI.getEvents)
                 .then(renderEventCard)
+                .then(clearAll.clear)
                 
                 } else if(event.target.id === "saveNewEvent" && hiddenInput.value) {
                     eventAPI.updateFormFieldsFetch(newEvent).then(eventAPI.getEvents).then(renderEventCard)
