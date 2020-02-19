@@ -15,7 +15,7 @@ const friendsFormValidation = {
                 const user = resp[0];
                 // console.log("response", user)
                 // console.log("response id", user.id)
-                console.log("there is a user by that name, proceed")
+                // console.log("there is a user by that name, proceed")
                 return user.id
 
                 //TODO: ARE THEY YOU?
@@ -39,7 +39,6 @@ const friendsFormValidation = {
         return usersAPI.getAllUsers()
             .then(users => {
                 const filtered = users.filter(friend => friend.email === email);
-                // console.log(filtered);
                 return filtered;
             })
     },
