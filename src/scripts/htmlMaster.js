@@ -3,7 +3,7 @@ const htmlMaster = {
         navBar() {
             return `
                 <header>
-                <h1 class="header-title">Nutshell</h1>
+                <a href="/src" class="header-link"><h1 class="header-title">Nutshell</h1></a>
                 <nav class="main-nav">
                     <ul>
                         <li><a href="#user__div">User</a></li>
