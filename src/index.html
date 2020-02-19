@@ -22,38 +22,47 @@
     </div>
     <div>
       <a href="#user__div" id="logoutUser">Logout</a>
-  </div>
-  <div id="friends__div">
-  </div>
-  <div id="tasks__div">
-  </div>
-  <div id="chat__div">
-    <fieldset>
-      <legend for="newMessageInput">
-        <h1>New Message</h1>
-      </legend>
-      <textarea name="newMessageInput" id="newMessageInput" rows="3" cols="55"></textarea>
-    </fieldset>
+      
+    </div>
+    <div id="friends__div">
+    </div>
+    <div id="tasks__div">
+    </div>
+    <div id="chat__div">
+      <fieldset>
+        <legend for="newMessageInput">
+          <h1>New Message</h1>
+        </legend>
+        <textarea name="newMessageInput" id="newMessageInput" rows="3" cols="55"></textarea>
+      </fieldset>
+    
+      <button id="saveButton" class="saveBtn">Save</button>
+      <input type="hidden" id="hiddenMessageId" value="" />
+    
+      <fieldset>
+        <legend for="messagesContainer">
+          <h1>Chat</h1>
+        </legend>
+        <section id="messagesContainer">
+        </section>
+      </fieldset>
+    </div>
+    <div id="news__div">
+      <h1>NEWS</h1>
+      <button id="article-new__button">Add Article</button>
+      <div id="article-form__div"></div>
+      <div id="articles__div"></div>
+    </div>
+    <div id="events__div">
+        <h2>Track Events</h2>
+        <button type="button" id="createEvent">Create Event</button>
+        <article id="eventFormContainer">
+        </article>
+        <article id="eventCardContainer">
 
-    <button id="saveButton" class="saveBtn">Save</button>
-    <input type="hidden" id="hiddenMessageId" value="" />
+        </article>
+    </div>
 
-    <fieldset>
-      <legend for="messagesContainer">
-        <h1>Chat</h1>
-      </legend>
-      <section id="messagesContainer">
-      </section>
-    </fieldset>
-  </div>
-  <div id="news__div">
-    <h1>NEWS</h1>
-    <button id="article-new__button">Add Article</button>
-    <div id="article-form__div"></div>
-    <div id="articles__div"></div>
-  </div>
-  <div id="events__div">
-  </div>
   </div>
   <!-- Footer Built by htmlMaster.js  -->
   <footer></footer>

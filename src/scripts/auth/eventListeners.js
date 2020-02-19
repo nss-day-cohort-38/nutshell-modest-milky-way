@@ -49,7 +49,7 @@ const User = {
                     window.alert("Username or email is already taken")
                 }
 
-            }).then()
+            })
         })
     },
     loginUser() {
@@ -89,7 +89,7 @@ const User = {
 
         })
 
-    }
+}
 }
 
 export default User

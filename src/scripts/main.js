@@ -1,3 +1,4 @@
+//htmlMaster main
 import htmlMaster from './htmlMaster.js'
 import articlesDomManager from './articles/domManager.js'
 import articlesEventListeners from './articles/eventListeners.js'
@@ -6,6 +7,8 @@ import messagesEvents from "./messages/eventListeners.js"
 import User from "./auth/eventListeners.js"
 
 //EVENTS
+import eventListeners from "./events/eventListeners.js"
+eventListeners.addCreateEventListener()
 
 //TASKS
 
