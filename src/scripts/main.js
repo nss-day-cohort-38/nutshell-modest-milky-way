@@ -28,6 +28,8 @@ messagesEvents.addEditButtonListeners();
 
 //USERS
 User.createRegistrationForm();
+User.logoutUser();
+User.getUser();
 
 //FIXME:
 // have session storage populate from 
