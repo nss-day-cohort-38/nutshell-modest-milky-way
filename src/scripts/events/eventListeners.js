@@ -41,10 +41,10 @@ const eventListeners = {
                  eventAPI.saveEvents(newEvent)
                 .then(eventAPI.getEvents)
                 .then(renderEventCard)
-                .then(clearAll.clear)
+                .then(clearAll.clear())
                 
                 } else if(event.target.id === "saveNewEvent" && hiddenInput.value) {
-                    eventAPI.updateFormFieldsFetch(newEvent).then(eventAPI.getEvents).then(renderEventCard)
+                    eventAPI.updateFormFieldsFetch(newEvent).then(eventAPI.getEvents).then(renderEventCard).then(clearAll.clear())
                 }  
             } else {
                 window.alert("Please enter future date ! ") //if not positive, it will window alert with no adding to API
