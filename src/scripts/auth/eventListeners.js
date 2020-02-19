@@ -22,6 +22,8 @@ const User = {
             usersAPI.getAllUsers().then(users => {
                 let filteredUsers = users.filter(users => activeUser === users.id);
                 showLoggedInUser.innerHTML += `${filteredUsers[0].username} is logged in`;
+                userDiv.style.display = 'none';
+
             })
         }
     },
