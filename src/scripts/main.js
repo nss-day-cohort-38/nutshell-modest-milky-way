@@ -24,6 +24,7 @@ messagesEvents.addEditButtonListeners();
 
 //USERS
 User.createRegistrationForm();
+User.logoutUser();
 
 //FIXME:
 // have session storage populate from 

@@ -1,10 +1,17 @@
 import usersAPI from "./api.js"
 
 const createAccount = document.getElementById("createAccount");
+const logoutUser = document.getElementById("logoutUser");
 const userDiv = document.getElementById("user__div");
 
 
+
 const User = {
+    clearForm() {
+
+        email.value = "";
+        username.value = "";
+    },
     createRegistrationForm() {
 
         createAccount.addEventListener("click", (event) => {
@@ -13,7 +20,7 @@ const User = {
     <button id="createUserButton">Create User</button> <button id="loginUserButton">Login</button>`
 
             this.createUserButtonListener();
-
+            this.loginUser();
         })
     },
     createUserButtonListener() {
@@ -29,44 +36,55 @@ const User = {
 
                 let filteredUsers = users.filter(user => username.value === user.username);
 
-          
-
                 if (filteredUsers.length === 0) {
-
                     usersAPI.addNewUser(newUser)
-                    .then(newUser => { 
-                         sessionStorage.setItem("activeUser", newUser.id);
-                         userDiv.style.display = 'none';
-                        const showLoggedInUser = document.getElementById("showLoggedInUser");
-                        showLoggedInUser.innerHTML += `${newUser.username} is logged in`;              
-                });
+                        .then(newUser => {
+                            sessionStorage.setItem("activeUser", newUser.id);
+                            userDiv.style.display = 'none';
+                            const showLoggedInUser = document.getElementById("showLoggedInUser");
+                            showLoggedInUser.innerHTML += `${newUser.username} is logged in`;
+                        });
                 }
                 else {
-                    window.alert("username or email is already taken")
+                    window.alert("Username or email is already taken")
+                }
+
+            }).then()
+        })
+    },
+    loginUser() {
+
+        const loginUserButton = document.getElementById("loginUserButton");
+        loginUserButton.addEventListener("click", (event) => {
+
+
+            usersAPI.getAllUsers().then(users => {
+
+                let filteredUser = users.filter(user => username.value === user.username);
+
+                if (filteredUser.length !== 0) {
+                    sessionStorage.setItem("activeUser", filteredUser[0].id);
+                    userDiv.style.display = 'none';
+                    const showLoggedInUser = document.getElementById("showLoggedInUser");
+                    showLoggedInUser.innerHTML += `${filteredUser[0].username} is logged in`;
+                }
+                else {
+                    window.alert("Couldn't find your Nuthsell account")
                 }
             })
 
-            // }).then(this.setActiveUser(filteredUsers[0].id))
-        // }).then(this.setActiveUser())
+
         })
     },
-    setActiveUser() {
-        usersAPI.getAllUsers().then(users => {
+    logoutUser() {
+        logoutUser.addEventListener("click", (event) => {
 
-            // let filteredUser = users.filter(user => username.value === user.username);
-            // console.log(filteredUser[0].id)
-            // const loginUserButton = document.getElementById("loginUserButton");
-            // loginUserButton.addEventListener("click", (event) => {
-            //     console.log(filteredUser[0].id);
-            //     sessionStorage.setItem("activeUser", filteredUser[0].id);
-            // });
-
-
-            // userDiv.style.display = 'none';
-            // const showLoggedInUser = document.getElementById("showLoggedInUser");
-            // showLoggedInUser.innerHTML += `${newUser.username} is logged in`;
+            sessionStorage.clear();
+            userDiv.style.display = 'block';
+            this.clearForm();
 
         })
+
     }
 }
 
