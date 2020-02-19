@@ -42,11 +42,14 @@ header {
     font-size: 2.25em;
     padding: 0 .5em;
     margin: .25em 0;
+    
 }
 .header-title:hover {
     background-color: rgb(249,235,208);
-    width: 175px;
+    width: 150px;
     border-radius: 25px;
+    text-shadow: 1px 2px 2px 2px #8888;
+    
       
 }
 .header-link {
@@ -173,3 +176,17 @@ fieldset{
     margin: 10px;
 }
 
+#logoutUser {
+    background-color:  rgb(231,118,76);
+    color: rgb(249,235,208);
+    padding: 5px;
+    border-radius: 25px;
+    text-decoration:none;
+    box-shadow: 1px 2px #8888;
+
+}
+
+#logoutUser:hover {
+    background-color:#ac9dd4;
+    color: rgb(249,235,208);
+}
