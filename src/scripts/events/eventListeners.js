@@ -9,6 +9,7 @@ const wrapper = document.querySelector("#events__div")
 const eventListeners = {
     addCreateEventListener() {
         wrapper.addEventListener("click", (event) => {
+            const activeUser = sessionStorage.getItem("activeUser");
             if(event.target.id === "createEvent") {
             renderEventForm()
             } 
@@ -33,7 +34,7 @@ const eventListeners = {
                 const newEvent = {
                     "name": nameInput.value, 
                     "hiddenId": hiddenInput.value,
-                    "userId": parseInt(eventAPI.user),
+                    "userId": parseInt(activeUser),
                     "date": dateInput.value, 
                     "location": locationInput.value,
                 }   
