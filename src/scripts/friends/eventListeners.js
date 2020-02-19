@@ -19,22 +19,15 @@ const friendsEventListeners = {
                     const formValue = document.getElementById("new-friend-name__field").value
                     document.getElementById("new-friend-name__field").value = "";
                     friendsFormValidation.allValidations(formValue)
-                        // .then((resp) => console.log("FINAL RESPONSE", resp))
                         .then((userId) => {
-                            // Workaround for times when validation fails,
-                            // to keep from POSTING an incomplete object:
-                            if (userId) {
+                            if (userId === false) {
+                                //Not Saving if the validation failed
+                            }
+                            else if (userId) {
                                 friendsApiManager.saveFriendship(friendsApiManager.makeFriendshipObject(userId))   
                             }
                         }).then(friendsDomManager.friendships.refreshFriendsList)
                         .then(friendsDomManager.form.destroyForm);
-                
-                        // friendApiManager.saveFriend(friend)
-                        //     .then(friendsDomManager.friendships.refreshFriendsList)
-                        //     .then(friendsDomManager.form.destroyForm)
-                    // } else {
-                    //     alert("Please enter valid user email");
-                    // }
                 }
                 else if (btnType === "friend-delete") {
                     const btnId = e.target.id.split("__")[2];
