@@ -1,10 +1,10 @@
-import makeTasksComponent from "./tasks/tasksComponent.js"
+import makeTasksComponent from "./tasksComponent.js"
+
 const renderTasks = (submissions) => {
    
-    const loggedTasks= document.querySelector("");
-    
-    const clearForm = document.querySelector("");
-    clearForm.innerHTML="";
+    const loggedTasks= document.querySelector(".taskArticle");
+
+    loggedTasks.innerHTML="";
 
     for (let i = 0; i < submissions.length; i++) {
         const userInput = submissions[i]

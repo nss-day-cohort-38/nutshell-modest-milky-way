@@ -1,24 +1,77 @@
-import api from "./tasksData.js"
-import renderTasks from "./tasksDOM.js";
 
-const addTasksSaveEventListener = () => {
-    const saveButton = document.querySelector("#submit");
+const baseURL = "http://localhost:8088/tasks"
 
-    saveButton.addEventListener("click", () => {
-        let userInput = {
-            taskName: document.querySelector("#taskName").value,
-            expectedCompletion: document.querySelector("#expectedCompletion").value,
-            isComplete: document.querySelector("#isCompleted").value
+const tasksAPI = {
 
-        }
+    getAllTasks() {
+        return fetch(`${baseURL}`)
+            .then(response => response.json());
+    },
 
-        api.addEntry(userInput)
-            .then(api.getAllEntries)
-            .then(renderTasksData)
+    addTask(task) {
+        return fetch(`${baseURL}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(task)
+        })
+    },
+
+
+
+
+    editTask(userInput) {
+    //  const updatedTask = {
+    //         id: document.querySelector("#hiddenTaskId").value,
+    //         taskName: document.querySelector("#taskName").value,
+    //         expectedCompletion: document.querySelector("#expectedCompletion").value,
+    //         isCompleted: document.querySelector("#isCompleted").value,
+    //     }
+
+        
+       return fetch(`http://localhost:8088/tasks/${userInput.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(userInput)
+        })
+            .then(res => res.json())
+            //.then(() => {
+
+               // document.querySelector("#hiddenTaskId").value = ""
+           // })
+    },
+
+    updateFormFields(taskId) {
+
+        const hiddenTaskId = document.querySelector("#hiddenTaskId")
+        const taskNameInput = document.querySelector("#taskName")
+        const taskDateInput = document.querySelector("#expectedCompletion")
+        const taskCompletionInput = document.querySelector("#isCompleted")
+
+
+        return fetch(`http://localhost:8088/tasks/${taskId}`)
+            .then(response => response.json())
+            .then(task => {
+
+                hiddenTaskId.value = task.id
+                taskNameInput.value = task.taskName
+                taskDateInput.value = task.expectedCompletion
+                taskCompletionInput.value = task.isCompleted
+
+            })
+    },
+
+    deleteTask(taskId) {
+        return fetch(`http://localhost:8088/tasks/${taskId}`, {
+            method: "DELETE"
+
+        })
+
     }
 
-
-    );
 }
 
-export default addTasksSaveEventListener
+export default tasksAPI
