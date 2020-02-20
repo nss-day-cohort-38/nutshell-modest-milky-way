@@ -24,11 +24,12 @@ const friendsEventListeners = {
                                 //Not Saving if the validation failed
                             }
                             else if (userId) {
-                                friendsApiManager.saveFriendship(friendsApiManager.makeFriendshipObject(userId))   
+                                // FIXME: not consistently refreshing friends list at delete
+                                friendsApiManager.saveFriendship(friendsApiManager.makeFriendshipObject(userId))
+                                    .then(friendsDomManager.friendships.refreshFriendsList)
+                                    .then(friendsDomManager.form.destroyForm);   
                             }
-                        // FIXME: not consistently refreshing friends list at delete
-                        }).then(friendsDomManager.friendships.refreshFriendsList)
-                        .then(friendsDomManager.form.destroyForm);
+                        })
                 }
                 // DELETE FRIEND
                 

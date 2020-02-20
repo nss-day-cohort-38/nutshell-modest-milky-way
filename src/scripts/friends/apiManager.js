@@ -18,7 +18,6 @@ const friendsApiManager = {
         })
     },
     makeFriendshipObject (userId) {
-        //FIXME
         return {
             "userId": userId,
             "currentUserId": parseInt(sessionStorage.getItem("activeUser"))

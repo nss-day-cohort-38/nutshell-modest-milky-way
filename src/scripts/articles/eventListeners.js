@@ -45,8 +45,6 @@ const articlesEventListeners = {
                         if (response) {
                             articlesDomManager.form.destroyForm();
                             articlesDomManager.article.refreshArticles()
-                            //TODO: This is not consistently rendering in time...
-                            //Running into issues using a .then statement though
                             articlesDomManager.form.renderEditForm(btnId);
                             articlesApiManager.getArticle(btnId)
                                 .then(articlesApiManager.editArticle)

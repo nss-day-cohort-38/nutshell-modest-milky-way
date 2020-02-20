@@ -7,7 +7,7 @@ const friendsHtmlFactory = {
                 <form action="">
                     <fieldset>
                         <label for="new-friend-name__field">New Friend</label>
-                        <input type="text" name="new-friend-name__field" id="new-friend-name__field" placeholder="Enter username here...">
+                        <input type="text" name="new-friend-name__field" id="new-friend-name__field" placeholder="Enter user email here...">
                     </fieldset>
                 </form>
                 <div class="buttons">       
