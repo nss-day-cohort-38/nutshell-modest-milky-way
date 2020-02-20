@@ -6,26 +6,39 @@ import friendsEventListener from './friends/eventListeners.js'
 import renderMessages from "./messages/render.js"
 import messagesEvents from "./messages/eventListeners.js"
 import User from "./auth/eventListeners.js"
-
-//EVENTS
 import eventListeners from "./events/eventListeners.js"
 import renderEventCard from './events/eventCardRenderDom.js'
 import eventAPI from './events/apiEventManager.js'
-eventAPI.getEvents().then(renderEventCard)
-eventListeners.addCreateEventListener()
 
-//TASKS
+const authRefresh = () => {
+    //MASTER DOM RENDERERER INVOKED AT LOGIN/LOGOUT
+
+    //FRIENDS
+    friendsDomManager.friendships.refreshFriendsList();
+
+    //EVENTS
+    eventAPI.getEvents().then(renderEventCard)
+    //TASKS
+
+    //ARTICLES
+    articlesDomManager.article.refreshArticles();
+
+    //CHAT
+    renderMessages.renderAllMessages();
+
+}
 
 //HTML Master
 htmlMaster.renderer.navBar();
 htmlMaster.renderer.footer();
 
-//ARTICLES
-articlesDomManager.article.refreshArticles();
-articlesEventListeners.addArticlesEventListener(); 
+authRefresh();
 
-//CHAT
-renderMessages.renderAllMessages();
+// EVENT LISTENERS:
+eventListeners.addCreateEventListener()
+friendsEventListener.addFriendsEventListener();
+eventListeners.addCreateEventListener();
+articlesEventListeners.addArticlesEventListener(); 
 messagesEvents.addSaveButtonListener();
 messagesEvents.addEditButtonListeners();
 
@@ -38,6 +51,4 @@ User.getUser();
 // have session storage populate from 
 // user login application in-development
 
-//FRIENDS
-friendsDomManager.friendships.refreshFriendsList();
-friendsEventListener.addFriendsEventListener();
+export default authRefresh

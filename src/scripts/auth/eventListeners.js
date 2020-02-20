@@ -1,4 +1,5 @@
 import usersAPI from "./api.js"
+import authRefresh from '../main.js'
 
 const createAccount = document.getElementById("createAccount");
 const showLoggedOutUser = document.getElementById("showLoggedOutUser");
@@ -87,6 +88,7 @@ const User = {
                   
                     showLoggedInUser.innerHTML += `${filteredUser[0].username} is logged in`;
                     showLoggedOutUser.innerHTML += `<p><a href="#wrapper" id="logoutUser">Logout</a></p>`
+                    authRefresh();
                 }
                 else {
                     window.alert("Couldn't find your Nutshell account")
@@ -102,6 +104,7 @@ const User = {
 
             sessionStorage.clear();
             userDiv.style.display = 'block';
+            authRefresh();
 
             if (typeof email !== 'undefined') {
                 this.clearForm();
