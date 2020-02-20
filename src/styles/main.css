@@ -233,3 +233,7 @@ fieldset{
     padding: 5px;
     border-radius: 25px;
 }
+
+.messageBox {
+    border-bottom: 2.43px solid rgb(246,173,50);
+}
