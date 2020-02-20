@@ -41,7 +41,8 @@ const friendsFormValidation = {
         return friendsApiManager.getFriendList()
             .then(friendships => {
                 const filtered = friendships.filter(friendship => friendship.userId === userId);
-                return filtered
+                return friendship.userId === userId 
+                && friendship.currentUserId === activeUser
             })
     }
 }
