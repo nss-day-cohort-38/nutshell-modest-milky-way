@@ -1,23 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+
 
 /*          OUTERMOST CONTAINERS                */
 body {
     display: flex;
-    background-color: pink;
+    background-color: rgb(249,235,208);
     justify-content: center;
     align-items: stretch;
     height: 100%;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 #wrapper{
     width: 70%;
-    background-color: white;
+    background-color: rgb(243,241,248);
     /* border: 10px solid #5e6472; */
-    padding: 70px;
+    padding: 100px;
     /* Top and bottom heavily padded 
         from fixed position nav bar */ 
     /* margin: 70px 30px 70px 30px; */
     justify-content: center;
     align-items: flex-start;
+    color: #ac9dd4
 }
 
 /*                  NAV BAR                     */
@@ -27,7 +31,7 @@ header {
     display: flex;
     flex-direction: row;
     align-items: center;
-    background-color: #5e6472;
+    background-color: #ffffff;
     width: 100%;
     margin: 0;
     padding: 0;
@@ -35,11 +39,23 @@ header {
 
 .header-title {
     width: 100%;
-    color: #b8f2e6;
+    color: rgb(231,118,76);
     font-weight: bolder;
     font-size: 2.25em;
     padding: 0 .5em;
     margin: .25em 0;
+    
+}
+.header-title:hover {
+    background-color: rgb(249,235,208);
+    width: 150px;
+    border-radius: 25px;
+    text-shadow: 1px 2px 2px 2px #8888;
+    
+      
+}
+.header-link {
+    text-decoration: none; 
 }
 
 .main-nav {
@@ -64,15 +80,16 @@ header {
 }
 
 .main-nav li a {
-    color: white;
+    color: #ac9dd4;
     font-weight: bold;
     padding: 8px 16px;
     text-decoration: none;
   }
 
 .main-nav li a:hover {
-    background-color: #aed9e0;
-    color: #5e6472;
+    background-color: rgb(243,241,248);
+    color: #ac9dd4;
+    border-radius: 25px;
 }
 
 /*                  FOOTER                     */
@@ -81,13 +98,13 @@ header {
     list-style: none;
     display: flex;
     justify-content: space-evenly;
-    background-color:#5E6472;
+    background-color:white;
     margin-block-start: 0;
     margin-block-end: 0;
 }
 
 #footer p {
-    color: white;
+    color: #ac9dd4;
     font-weight: bold;
 }
 
@@ -101,9 +118,131 @@ footer {
 .eventInfo:first-child {
     font-weight: bold;
     font-size: 22px;
-    background: lavender;
-    border: 2.5px solid #f5bfca;
-    border-radius: 25px;
+    background-color: rgb(249,235,208);
+    border: 4px solid rgb(246,173,50);
     padding: 7.5px;
     margin-top: 3px;
+
+}
+.eventInfo:first-child:hover {
+    border: 4px solid rgb(178,142,253);
+
+}
+
+.eventInfo {
+    border: 2.43px solid rgb(246,173,50);
+    background-color: rgb(249,235,208);
+}
+
+button {
+    text-decoration: none;
+    background-color:  rgb(231,118,76);
+    color: rgb(249,235,208);
+    padding: 5px;
+    border-radius: 25px;
+    box-shadow: 1px 2px #8888;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+button:hover {
+    background-color:#ac9dd4;
+    color: rgb(249,235,208);
+}
+
+#wrapper h1 {
+    display: flex;
+    justify-content: center;
+}
+
+
+#user__div a{
+    text-decoration: none;
+    background-color:  rgb(231,118,76);
+    color: rgb(243,241,248);
+    padding: 5px;
+    border-radius: 25px;
+    box-shadow: 1px 3.3px #8888;
+}
+#user__div a:hover {
+    background-color: #ac9dd4;
+    color: rgb(249,235,208);
+}
+
+footer a{
+    text-decoration: none;
+    color: #ac9dd4;
+}
+
+footer a:hover {
+    background-color: rgb(243,241,248);
+    color: #ac9dd4;
+    padding: 5px;
+    border-radius: 25px;
+}
+fieldset{
+    border: 0;
+    background-color: rgb(249,235,208);
+    margin: 10px;
+}
+
+#logoutUser {
+    background-color:  rgb(231,118,76);
+    color: rgb(249,235,208);
+    padding: 5px;
+    border-radius: 25px;
+    text-decoration:none;
+    box-shadow: 1px 2px #8888;
+
+}
+
+#logoutUser:hover {
+    background-color:#ac9dd4;
+    color: rgb(249,235,208);
+}
+
+
+#chat__div {
+    border-bottom: 2.43px solid #ac9dd4;
+}
+
+#news__div {
+    border-bottom: 2.43px solid #ac9dd4;
+    padding: 10px;
+}
+
+#events__div {
+    border-bottom: 2.43px solid #ac9dd4;
+    padding: 10px;
+
+}
+
+.articleCard {
+    background-color: rgb(249,235,208);
+    border: 2.43px solid rgb(246,173,50);
+    padding: 10px;
+    margin-top: 13px;
+}
+
+.articleCard a{
+    text-decoration: none;
+    background-color:  rgb(231,118,76);
+    color: rgb(243,241,248);
+    padding: 5px;
+    border-radius: 25px;
+}
+
+.articleCard a:hover{
+    background-color:#ac9dd4;
+    color: rgb(249,235,208);
+    padding: 5px;
+    border-radius: 25px;
+}
+
+.messageBox {
+    border-bottom: 2.43px solid rgb(246,173,50);
+}
+
+.eventInfo {
+    margin: 10px;
+    padding: 5px;
 }
