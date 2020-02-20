@@ -23,7 +23,7 @@ const htmlMaster = {
                 <p>Copyright 2020 Modest Milky Way</p>
                 <p>Created by: Modest Milky Way </p>
                 <p><a href="https://github.com/nss-day-cohort-38/nutshell-modest-milky-way">
-                Repo Link</a></p>
+                Repository</a></p>
             </div>
             `
         }

@@ -119,13 +119,19 @@ footer {
     font-weight: bold;
     font-size: 22px;
     background-color: rgb(249,235,208);
-    border: 2.43px solid rgb(246,173,50);
+    border: 4px solid rgb(246,173,50);
     padding: 7.5px;
     margin-top: 3px;
+
+}
+.eventInfo:first-child:hover {
+    border: 4px solid rgb(178,142,253);
+
 }
 
 .eventInfo {
     border: 2.43px solid rgb(246,173,50);
+    background-color: rgb(249,235,208);
 }
 
 button {
@@ -147,9 +153,7 @@ button:hover {
     display: flex;
     justify-content: center;
 }
-/* #chat__div {
-    background-color: rgb(249,235,208)
-} */
+
 
 #user__div a{
     text-decoration: none;
@@ -236,4 +240,9 @@ fieldset{
 
 .messageBox {
     border-bottom: 2.43px solid rgb(246,173,50);
+}
+
+.eventInfo {
+    margin: 10px;
+    padding: 5px;
 }
