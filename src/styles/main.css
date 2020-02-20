@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+
+
 /*          OUTERMOST CONTAINERS                */
 body {
     display: flex;
@@ -116,11 +118,14 @@ footer {
 .eventInfo:first-child {
     font-weight: bold;
     font-size: 22px;
-    background: rgb(249,235,208);
-    border: 2.5px solid #ac9dd4;
-    border-radius: 25px;
+    background-color: rgb(249,235,208);
+    border: 2.43px solid rgb(246,173,50);
     padding: 7.5px;
     margin-top: 3px;
+}
+
+.eventInfo {
+    border: 2.43px solid rgb(246,173,50);
 }
 
 button {
@@ -189,4 +194,42 @@ fieldset{
 #logoutUser:hover {
     background-color:#ac9dd4;
     color: rgb(249,235,208);
+}
+
+
+#chat__div {
+    border-bottom: 2.43px solid #ac9dd4;
+}
+
+#news__div {
+    border-bottom: 2.43px solid #ac9dd4;
+    padding: 10px;
+}
+
+#events__div {
+    border-bottom: 2.43px solid #ac9dd4;
+    padding: 10px;
+
+}
+
+.articleCard {
+    background-color: rgb(249,235,208);
+    border: 2.43px solid rgb(246,173,50);
+    padding: 10px;
+    margin-top: 13px;
+}
+
+.articleCard a{
+    text-decoration: none;
+    background-color:  rgb(231,118,76);
+    color: rgb(243,241,248);
+    padding: 5px;
+    border-radius: 25px;
+}
+
+.articleCard a:hover{
+    background-color:#ac9dd4;
+    color: rgb(249,235,208);
+    padding: 5px;
+    border-radius: 25px;
 }

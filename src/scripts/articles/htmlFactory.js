@@ -35,7 +35,7 @@ const articlesHtmlFactory = {
     article: {
         makeHtml(article){
             return `
-            <div id="article-container__${article.id}">
+            <div class="articleCard" id="article-container__${article.id}">
                 <article>
                     <h2>${article.title}</h2>
                     <div>
