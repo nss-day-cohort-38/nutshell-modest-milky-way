@@ -27,6 +27,7 @@ const friendsDomManager = {
             })
         },
         refreshFriendsList () {
+            // TODO: refresh friend list at login
             return friendsApiManager.getFriendList()
                 .then((allFriends) => {
                     // Filtering out any friendships that are not the active user's

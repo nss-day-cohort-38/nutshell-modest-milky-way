@@ -26,14 +26,18 @@ const friendsEventListeners = {
                             else if (userId) {
                                 friendsApiManager.saveFriendship(friendsApiManager.makeFriendshipObject(userId))   
                             }
+                        // FIXME: not consistently refreshing friends list at delete
                         }).then(friendsDomManager.friendships.refreshFriendsList)
                         .then(friendsDomManager.form.destroyForm);
                 }
+                // DELETE FRIEND
+                
                 else if (btnType === "friend-delete") {
                     const btnId = e.target.id.split("__")[2];
                     const response = confirm("Are you sure you want to delete this friendship?")
                     if (response) {
                         friendsApiManager.deleteFriendship(btnId)
+                            // FIXME: not consistently refreshing friends list at delete
                             .then(friendsDomManager.friendships.refreshFriendsList);
                     }
                 }
