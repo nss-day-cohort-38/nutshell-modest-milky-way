@@ -8,11 +8,77 @@
   <link rel="stylesheet" href="./styles/main.css">
   <title>Articles</title>
 </head>
-  <body>
-    <header></header>
-    <!-- All page content goes in the Wrapper  -->
-    <div id="wrapper"></div>
-    <footer></footer>
-    <script type="module" src="scripts/main.js"></script>
-  </body>
+
+<body>
+  <!-- Header Built by htmlMaster.js  -->
+  <header></header>
+  <!-- All page content goes in its 
+      respective div within the Wrapper  -->
+  <div id="wrapper">
+    <h1>Welcome to Nutshell!</h1>
+    <div id="showLoggedInUser"></div>
+    <div id="showLoggedOutUser"></div>
+    <div id="user__div">
+      <a href="#wrapper" id="createAccount">Login or Create an account</a>
+    </div>
+    <div>
+      
+      
+    </div>
+    <div id="friends__div">
+    </div>
+    <div id="tasks__div">
+      <div class="tasksSection">
+        <input type="hidden" id="hiddenTaskId" value="" />
+          <label for="user">Task:</label>
+              <input type="taskName" name="taskName" id="taskName">
+          <label for="user">Expected Completion Date:</label>
+              <input type="date" name="expectedCompletion" id="expectedCompletion">
+          <label for="user">Check the box if the task has been completed.</label>
+          <input type="checkbox" name="isCompleted" id="isCompleted">
+          <input type="submit" id="submit" value="submit">            
+      </div>
+      <article class="taskArticle"></article>
+    </div>
+    <div id="chat__div">
+      <fieldset>
+        <legend for="newMessageInput">
+          <h2>New Message</h2>
+        </legend>
+        <textarea name="newMessageInput" id="newMessageInput" rows="3" cols="55"></textarea>
+      </fieldset>
+    
+      <button id="saveButton" class="saveBtn">Save</button>
+      <input type="hidden" id="hiddenMessageId" value="" />
+    
+      <fieldset>
+        <legend for="messagesContainer">
+          <h2>Chat</h2>
+        </legend>
+        <section id="messagesContainer">
+        </section>
+      </fieldset>
+    </div>
+    <div id="news__div">
+      <h2>News</h2>
+      <button id="article-new__button">Add Article</button>
+      <div id="article-form__div"></div>
+      <div id="articles__div"></div>
+    </div>
+    <div id="events__div">
+        <h2>Track Events</h2>
+        <button type="button" id="createEvent">Create Event</button>
+        <article id="eventFormContainer">
+        </article>
+        <article id="eventCardContainer">
+
+        </article>
+    </div>
+
+  </div>
+  <!-- Footer Built by htmlMaster.js  -->
+  <footer></footer>
+  <script type="module" src="scripts/main.js"></script>
+</body>
+
 </html>

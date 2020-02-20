@@ -38,10 +38,7 @@ const tasksAPI = {
             body: JSON.stringify(userInput)
         })
             .then(res => res.json())
-            //.then(() => {
-
-               // document.querySelector("#hiddenTaskId").value = ""
-           // })
+          
     },
 
     updateFormFields(taskId) {
@@ -65,6 +62,7 @@ const tasksAPI = {
     },
 
     deleteTask(taskId) {
+        console.log("delete");
         return fetch(`http://localhost:8088/tasks/${taskId}`, {
             method: "DELETE"
 
