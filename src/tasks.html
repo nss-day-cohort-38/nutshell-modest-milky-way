@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./styles/main.css">
+  <title>Tasks</title>
+</head>
+  <body>
+    <header></header>
+    <!-- All page content goes in the Wrapper  -->
+    <div id="wrapper">
+        <div class="tasksSection">
+          <input type="hidden" id="hiddenTaskId" value="" />
+            <label for="user">Task:</label>
+                <input type="taskName" name="taskName" id="taskName">
+            <label for="user">Expected Completion Date:</label>
+                <input type="date" name="expectedCompletion" id="expectedCompletion">
+            <label for="user">Check the box if the task has been completed.</label>
+            <input type="checkbox" name="isCompleted" id="isCompleted">
+            <input type="submit" id="submit" value="submit">            
+      </div>
+        <article class="taskArticle"></article>
+    </div>
+    <footer></footer>
+    <script type="module" src="scripts/main.js"></script>
+  </body>
+</html>

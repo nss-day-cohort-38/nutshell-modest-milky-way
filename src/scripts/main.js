@@ -9,6 +9,10 @@ import User from "./auth/eventListeners.js"
 import eventListeners from "./events/eventListeners.js"
 import renderEventCard from './events/eventCardRenderDom.js'
 import eventAPI from './events/apiEventManager.js'
+import taskEvents from './tasks/saveTasks.js';
+import renderTasks from './tasks/tasksDOM.js';
+import tasksAPI from './tasks/tasksData.js';
+
 
 const authRefresh = () => {
     //MASTER DOM RENDERERER INVOKED AT LOGIN/LOGOUT
@@ -27,12 +31,18 @@ const authRefresh = () => {
     renderMessages.renderAllMessages();
 
 }
-
 //HTML Master
 htmlMaster.renderer.navBar();
 htmlMaster.renderer.footer();
 
 authRefresh();
+
+//TASKS
+tasksAPI.getAllTasks().then(tasks => renderTasks(tasks));
+
+taskEvents.addTasksSaveEventListener();
+taskEvents.addTasksEditEventListener();
+taskEvents.tasksDeleteEventListener();
 
 // EVENT LISTENERS:
 eventListeners.addCreateEventListener()
