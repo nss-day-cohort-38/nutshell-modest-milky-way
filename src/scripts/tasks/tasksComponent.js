@@ -6,7 +6,7 @@ const makeTasksComponent = (submission) => {
                  <section> ${submission.expectedCompletion} </section>
                  <aside>${submission.isComplete}</aside>
                  <button id="isCompleted--${submission.id}">
-                 ${submission.isCompleted}
+                 ${submission.isComplete}
              </button>
              <button id="editTask--${submission.id}">
              Edit Task
