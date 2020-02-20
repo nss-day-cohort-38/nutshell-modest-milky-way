@@ -83,6 +83,7 @@ const User = {
                     userDiv.style.display = 'none';
                     const showLoggedInUser = document.getElementById("showLoggedInUser");
                     showLoggedInUser.innerHTML += `${filteredUser[0].username} is logged in`;
+                    //TODO: add refresh friends list here
                 }
                 else {
                     window.alert("Couldn't find your Nuthsell account")
