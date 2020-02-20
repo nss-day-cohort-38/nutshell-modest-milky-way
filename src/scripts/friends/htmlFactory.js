@@ -12,7 +12,6 @@ const friendsHtmlFactory = {
                 </form>
                 <div class="buttons">       
                     <button id="friend-save__button">Save</button>
-                    <button id="friend-cancel__button">Cancel</button>
                 </div>
             </article>
             `
