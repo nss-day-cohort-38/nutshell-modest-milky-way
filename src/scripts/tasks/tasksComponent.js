@@ -3,11 +3,10 @@ const makeTasksComponent = (submission) => {
     return `
              <div class="entryLog">
                  <h1> ${submission.taskName} </h1>
-                 <section> ${submission.expectedCompletion} </section>
-                 <aside>${submission.isComplete}</aside>
-                 <button id="isCompleted--${submission.id}">
-                 ${submission.isComplete}
-             </button>
+                 <section> Expected completion date: ${submission.expectedCompletion} </section>
+                 <aside> Task has been completed: ${submission.isComplete}
+                 </aside>
+                 <br>
              <button id="editTask--${submission.id}">
              Edit Task
             </button>
