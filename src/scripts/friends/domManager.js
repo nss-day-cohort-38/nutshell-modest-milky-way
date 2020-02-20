@@ -28,6 +28,11 @@ const friendsDomManager = {
         },
         refreshFriendsList () {
             return friendsApiManager.getFriendList()
+                .then((allFriends) => {
+                    // Filtering out any friendships that are not the active user's
+                    const currentUserId = parseInt(sessionStorage.getItem("activeUser"));
+                    return allFriends.filter(friendship => friendship.currentUserId === currentUserId)
+                })
                 .then(friendsDomManager.friendships.renderFriendsList)
         }
     }
