@@ -8,6 +8,9 @@ import User from "./auth/eventListeners.js"
 
 //EVENTS
 import eventListeners from "./events/eventListeners.js"
+import renderEventCard from './events/eventCardRenderDom.js'
+import eventAPI from './events/apiEventManager.js'
+eventAPI.getEvents().then(renderEventCard)
 eventListeners.addCreateEventListener()
 
 //TASKS

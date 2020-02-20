@@ -1,7 +1,7 @@
 import usersAPI from "./api.js"
 
 const createAccount = document.getElementById("createAccount");
-const logoutUser = document.getElementById("logoutUser");
+const showLoggedOutUser = document.getElementById("showLoggedOutUser");
 const userDiv = document.getElementById("user__div");
 
 
@@ -22,6 +22,7 @@ const User = {
             usersAPI.getAllUsers().then(users => {
                 let filteredUsers = users.filter(users => activeUser === users.id);
                 showLoggedInUser.innerHTML += `${filteredUsers[0].username} is logged in`;
+                showLoggedOutUser.innerHTML += `<p><a href="#wrapper" id="logoutUser">Logout</a></p>`;
                 userDiv.style.display = 'none';
 
             })
@@ -60,6 +61,8 @@ const User = {
                             userDiv.style.display = 'none';
                             const showLoggedInUser = document.getElementById("showLoggedInUser");
                             showLoggedInUser.innerHTML += `${newUser.username} is logged in`;
+                            showLoggedOutUser.innerHTML += `<p><a href="#wrapper" id="logoutUser">Logout</a></p>`
+        
                         });
                 }
                 else {
@@ -81,21 +84,21 @@ const User = {
                 if (filteredUser.length !== 0) {
                     sessionStorage.setItem("activeUser", filteredUser[0].id);
                     userDiv.style.display = 'none';
-                    const showLoggedInUser = document.getElementById("showLoggedInUser");
+                  
                     showLoggedInUser.innerHTML += `${filteredUser[0].username} is logged in`;
+                    showLoggedOutUser.innerHTML += `<p><a href="#wrapper" id="logoutUser">Logout</a></p>`
                 }
                 else {
-                    window.alert("Couldn't find your Nuthsell account")
+                    window.alert("Couldn't find your Nutshell account")
                 }
             })
         })
     },
     logoutUser() {
-        logoutUser.addEventListener("click", (event) => {
-
-
+        showLoggedOutUser.addEventListener("click", (event) => {
             const showLoggedInUser = document.getElementById("showLoggedInUser");
             showLoggedInUser.innerHTML = "";
+            showLoggedOutUser.innerHTML = "";
 
             sessionStorage.clear();
             userDiv.style.display = 'block';
