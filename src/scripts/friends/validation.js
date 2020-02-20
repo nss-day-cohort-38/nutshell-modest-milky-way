@@ -40,7 +40,12 @@ const friendsFormValidation = {
     notAlreadyFriends (userId) {
         return friendsApiManager.getFriendList()
             .then(friendships => {
-                const filtered = friendships.filter(friendship => friendship.userId === userId);
+                const filtered = friendships.filter(friendship => {
+                    const activeUser = parseInt(sessionStorage.getItem("activeUser"))
+                    console.log(activeUser)
+                    return friendship.userId === userId 
+                    && friendship.currentUserId === activeUser
+                });
                 return filtered
             })
     }

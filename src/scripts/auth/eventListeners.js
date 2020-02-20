@@ -1,4 +1,5 @@
 import usersAPI from "./api.js"
+import authRefresh from '../main.js'
 
 const createAccount = document.getElementById("createAccount");
 const logoutUser = document.getElementById("logoutUser");
@@ -84,6 +85,7 @@ const User = {
                     const showLoggedInUser = document.getElementById("showLoggedInUser");
                     showLoggedInUser.innerHTML += `${filteredUser[0].username} is logged in`;
                     //TODO: add refresh friends list here
+                    authRefresh();
                 }
                 else {
                     window.alert("Couldn't find your Nuthsell account")
@@ -100,6 +102,7 @@ const User = {
 
             sessionStorage.clear();
             userDiv.style.display = 'block';
+            authRefresh();
 
             if (typeof email !== 'undefined') {
                 this.clearForm();
