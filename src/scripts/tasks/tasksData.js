@@ -62,7 +62,7 @@ const tasksAPI = {
     },
 
     deleteTask(taskId) {
-        console.log("delete");
+        
         return fetch(`http://localhost:8088/tasks/${taskId}`, {
             method: "DELETE"
 
