@@ -47,8 +47,4 @@ User.createRegistrationForm();
 User.logoutUser();
 User.getUser();
 
-//FIXME:
-// have session storage populate from 
-// user login application in-development
-
 export default authRefresh
