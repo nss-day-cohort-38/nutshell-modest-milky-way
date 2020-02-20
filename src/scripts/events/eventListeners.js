@@ -4,8 +4,6 @@ import renderEventCard from "./eventCardRenderDom.js"
 
 const wrapper = document.querySelector("#events__div")
 
-
-
 const eventListeners = {
     addCreateEventListener() {
         wrapper.addEventListener("click", (event) => {
@@ -26,10 +24,15 @@ const eventListeners = {
                     }
                 }
                 let today = new Date();
-                let eventDate = new Date(dateInput.value);
+                let eventDate = new Date(dateInput.value)
+                
                 //had some issues with getting todays date, had to reset it
                 eventDate.setDate(eventDate.getDate() + 1)
                 //if the value is positive, it will add to API
+                
+               console.log(eventDate)
+               console.log(today)
+               console.log(eventDate-today)
                 if(eventDate - today >= 0) {
                 const newEvent = {
                     "name": nameInput.value, 

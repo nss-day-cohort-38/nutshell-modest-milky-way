@@ -5,7 +5,7 @@ const updateTaskFields = taskId => {
     fetch(`http://localhost:8088/tasks/${taskId}`)
         .then(response => response.json())
         .then(task => {
-            console.log(task);
+            
 
 
             let taskName = document.querySelector("#taskName");
@@ -34,7 +34,7 @@ const taskEvents = {
         const saveButton = document.querySelector("#submit");
 
         saveButton.addEventListener("click", () => {
-            console.log(document.querySelector("#isCompleted").checked);
+            
             let userInput = {
                 taskName: document.querySelector("#taskName").value,
                 expectedCompletion: document.querySelector("#expectedCompletion").value,
@@ -66,7 +66,7 @@ const taskEvents = {
             if (event.target.id.startsWith("editTask--")) {
                 const taskIdToEdit = event.target.id.split("--")[1]
 
-                console.log(taskIdToEdit);
+                
 
                 tasksAPI.updateFormFields(taskIdToEdit)
             }

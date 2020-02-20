@@ -47,7 +47,6 @@ taskEvents.tasksDeleteEventListener();
 // EVENT LISTENERS:
 eventListeners.addCreateEventListener()
 friendsEventListener.addFriendsEventListener();
-eventListeners.addCreateEventListener();
 articlesEventListeners.addArticlesEventListener(); 
 messagesEvents.addSaveButtonListener();
 messagesEvents.addEditButtonListeners();
